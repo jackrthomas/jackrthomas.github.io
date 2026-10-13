@@ -145,7 +145,7 @@ subtitle: "Talks, posters, seminars and conferences"
 
 ::: {.ev-body}
 [Mathématiques et chimie ([EMC2](https://erc-emc2.eu/emc2-seminars/))]{.ev-title}\
-[[Laboratoire Jacques-Louis Lions](https://www.ljll.math.upmc.fr)]{.ev-where}
+[[Laboratoire Jacques-Louis Lions](https://www.ljll.fr)]{.ev-where}
 
 [Seminar]{.ev-badge .seminar} [Body-ordered approximations of atomic properties]{.ev-what}
 
