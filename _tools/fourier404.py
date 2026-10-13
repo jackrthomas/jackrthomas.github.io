@@ -103,6 +103,8 @@ def px(w):
 GRAY, BLACK = (150, 150, 150), (0, 0, 0)
 RED = (112, 0, 56)                       # the site maroon (#700038) for the epicycles
 TEXT_GRAY = (0, 0, 0)                    # background formula text colour
+WHITE = (255, 255, 255)
+HALO = 3                                 # white halo (px) around strokes, over the text
 target_pts = [tuple(p) for p in px(z)]
 hole_pts = [[tuple(p) for p in px(h)] for h in holes_z]
 
@@ -195,37 +197,44 @@ def frame(N, t_pen, trace_t=None, filled=False):
         for hp in hole_pts:
             md.polygon(P(hp), fill=0)
         im.paste(BLACK, (0, 0) + im.size, mask)
+    # every stroke gets a white halo underneath, so it stands out from the
+    # (black) formula text in the background
+    def halo_line(pts, fill, width):
+        dr.line(pts, fill=WHITE, width=width + HALO * SS, joint="curve")
+        dr.line(pts, fill=fill, width=width, joint="curve")
     # target outline (gray)
-    dr.line(P(target_pts + [target_pts[0]]), fill=GRAY, width=2 * SS, joint="curve")
+    halo_line(P(target_pts + [target_pts[0]]), GRAY, 2 * SS)
     for hp in hole_pts:                  # holes: shown, not approximated
-        dr.line(P(hp + [hp[0]]), fill=GRAY, width=2 * SS, joint="curve")
+        halo_line(P(hp + [hp[0]]), GRAY, 2 * SS)
     # partial sum S_N (black)
     tt = np.linspace(0, 1, 900, endpoint=False) if trace_t is None else trace_t
     curve = [tuple(p) for p in px(partial_sum(N, tt))]
     if trace_t is None:
         curve.append(curve[0])
     if len(curve) > 1:
-        dr.line(P(curve), fill=BLACK, width=3 * SS + 1, joint="curve")   # thicker trace
+        halo_line(P(curve), BLACK, 3 * SS + 1)                           # thicker trace
     # epicycles (maroon): centre term first, then the rest ordered by size
     js = sorted(range(-N, N + 1), key=lambda j: -abs(coef(j)) if j else np.inf)
     js = [0] + [j for j in js if j != 0]
-    pos = 0j
+    segs, pos = [], 0j
     for j in js:
         term = coef(j) * np.exp(2j * np.pi * j * t_pen)
         if j != 0:
-            r = abs(coef(j)) * scale
             (x0, y0), = px(np.array([pos]))
+            (x1, y1), = px(np.array([pos + term]))
+            segs.append((x0, y0, abs(coef(j)) * scale, x1, y1))
+        pos += term
+    for colour, extra in ((WHITE, HALO * SS), (RED, 0)):     # halo pass, then maroon
+        for x0, y0, r, x1, y1 in segs:
             if r > 0.6:
                 dr.ellipse([(x0 - r) * SS, (y0 - r) * SS, (x0 + r) * SS, (y0 + r) * SS],
-                           outline=RED, width=SS)
-            (x1, y1), = px(np.array([pos + term]))
-            dr.line([(x0 * SS, y0 * SS), (x1 * SS, y1 * SS)], fill=RED, width=SS)
-        pos += term
+                           outline=colour, width=SS + extra)
+            dr.line([(x0 * SS, y0 * SS), (x1 * SS, y1 * SS)], fill=colour, width=SS + extra)
     (xp, yp), = px(np.array([pos]))
     dr.ellipse([(xp - 3.5) * SS, (yp - 3.5) * SS, (xp + 3.5) * SS, (yp + 3.5) * SS], fill=RED)
     im = im.resize((W, H), Image.LANCZOS)
     ImageDraw.Draw(im).text((LABEL_X, LABEL_Y), f"N = {N}", font=LABEL_FONT,
-                            fill=(0, 0, 0), anchor="mm")
+                            fill=(0, 0, 0), anchor="mm", stroke_width=3, stroke_fill=WHITE)
     return im
 
 if PREVIEW:
