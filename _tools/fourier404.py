@@ -1,12 +1,14 @@
 """Fourier-series (epicycle) animation of the outline of a bold "404".
 
 The digits are drawn with negative letter spacing so they overlap into a single
-connected shape; only its OUTER outline is used (the holes are ignored). The
+connected shape; only its OUTER outline is approximated (the holes are drawn in
+gray but not fitted). The
 outline z(t), t in [0,1), is sampled uniformly by arc length, and its Fourier
 coefficients c_j are computed with an FFT. Frames show the partial sums
     S_N(t) = sum_{|j| <= N} c_j exp(2 pi i j t)
-for increasing N: target outline in gray, S_N in black, and the chain of
-epicycles (one circle per term, radius |c_j|) in red.
+for increasing N: target outline (and holes) in gray, S_N in black, the chain of
+epicycles (one circle per term, radius |c_j|) in the site maroon, and the formula for S_N
+with its coefficients to 2 decimal places underneath.
 
 usage (from the project root):
     python3 _tools/fourier404.py images/404-fourier.gif [--preview preview.png]
@@ -15,8 +17,10 @@ import sys
 import numpy as np
 import cv2
 from PIL import Image, ImageDraw, ImageFont
+import io
 import matplotlib
-from matplotlib import font_manager
+matplotlib.use("Agg")
+from matplotlib import font_manager, mathtext
 
 OUT = sys.argv[1]
 PREVIEW = sys.argv[sys.argv.index("--preview") + 1] if "--preview" in sys.argv else None
@@ -36,14 +40,23 @@ for ch in "404":
 mask = np.array(canvas)
 # close any hairline gaps where the digits meet, so the union is one blob
 mask = cv2.morphologyEx(mask, cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
-contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
-contour = max(contours, key=cv2.contourArea)[:, 0, :].astype(float)
-print("pieces:", len(contours), "-> using the largest outline,", len(contour), "points")
+# two-level contours: outer outlines and the holes inside them
+contours, hier = cv2.findContours(mask, cv2.RETR_CCOMP, cv2.CHAIN_APPROX_NONE)
+hier = hier[0]
+outer_idx = max((i for i in range(len(contours)) if hier[i][3] == -1),
+                key=lambda i: cv2.contourArea(contours[i]))
+contour = contours[outer_idx][:, 0, :].astype(float)
+holes = [contours[i][:, 0, :].astype(float) for i in range(len(contours)) if hier[i][3] == outer_idx]
+print("outer outline:", len(contour), "points; holes:", len(holes))
 
-# complex curve, y up, centred, clockwise -> counter-clockwise
-z = contour[:, 0] - 1j * contour[:, 1]
-z -= z.mean()
-z /= np.abs(z).max()
+# complex curve, y up, centred; the holes get exactly the same transform
+def to_complex(pts):
+    return pts[:, 0] - 1j * pts[:, 1]
+z = to_complex(contour)
+SHIFT = z.mean()
+NORM = np.abs(z - SHIFT).max()
+z = (z - SHIFT) / NORM
+holes_z = [(to_complex(h) - SHIFT) / NORM for h in holes]
 
 # resample uniformly by arc length
 M = 2048
@@ -63,7 +76,8 @@ def partial_sum(N, t):
     return (coef(js)[None, :] * np.exp(2j * np.pi * np.outer(t, js))).sum(axis=1)
 
 # -------------------------------------------------------------- rendering ----
-W, H = 720, 460
+W, H = 720, 460                          # picture area
+EXPR_H = 190                             # formula panel underneath
 PAD = 14
 xs, ys = z.real, z.imag
 # The epicycle chain reaches well outside the letters, so fit the scale to the
@@ -85,10 +99,62 @@ cx, cy = W / 2, (H - 30) / 2
 def px(w):
     return np.stack([cx + scale * w.real, cy - scale * w.imag], axis=-1)
 
-GRAY, BLACK, RED, RED_LIGHT = (175, 175, 175), (0, 0, 0), (200, 20, 40), (235, 150, 160)
+GRAY, BLACK = (175, 175, 175), (0, 0, 0)
+RED = (112, 0, 56)                       # the site maroon (#700038) for the epicycles
 target_pts = [tuple(p) for p in px(z)]
+hole_pts = [[tuple(p) for p in px(h)] for h in holes_z]
 LABEL_FONT = ImageFont.truetype(FONT, 18)
 SS = 2                                   # supersampling for smooth lines
+
+# ---------------------------------------------------------- formula panel ----
+# S_N(t) = c_0 + c_1 e^{2 pi i t} + c_{-1} e^{-2 pi i t} + ... (coefficients to
+# 2 decimal places), typeset with matplotlib's mathtext, flowed into lines.
+MATH_PT, MATH_DPI = 10.5, 100
+_cache = {}
+def math_img(tex):
+    if tex not in _cache:
+        buf = io.BytesIO()
+        mathtext.math_to_image(tex, buf, prop=font_manager.FontProperties(size=MATH_PT),
+                               dpi=MATH_DPI, format="png")
+        buf.seek(0)
+        _cache[tex] = Image.open(buf).convert("RGBA")
+    return _cache[tex]
+
+def num(v):
+    v = round(v, 2) + 0.0                # +0.0 turns -0.0 into 0.0
+    return f"{v:.2f}"
+def cnum(w):
+    im = round(w.imag, 2) + 0.0
+    return f"({num(w.real)}{'-' if im < 0 else '+'}{num(abs(im))}i)"
+def term_tex(j, first=False):
+    if j == 0:
+        return "$" + cnum(coef(0)) + "$"
+    e = (r"2\pi i t" if abs(j) == 1 else rf"2\pi i\,{abs(j)}t")
+    e = ("-" if j < 0 else "") + e
+    return "$" + ("" if first else "+") + rf"{cnum(coef(j))}\,e^{{{e}}}" + "$"
+
+def expr_panel(N):
+    panel = Image.new("RGB", (W, EXPR_H), "white")
+    order = [0] + [j for k in range(1, N + 1) for j in (k, -k)]
+    tokens = [rf"$S_{{{N}}}(t)\;=\;$"] + [term_tex(j, first=(i == 0)) for i, j in enumerate(order)]
+    x, y, line_h, gap = PAD, 6, 0, 4
+    lines_max_y = EXPR_H - 8
+    for i, tok in enumerate(tokens):
+        im = math_img(tok)
+        if x + im.width > W - PAD:       # wrap
+            x, y = PAD + 18, y + line_h + 3
+            line_h = 0
+        rest = len(tokens) - i
+        more = math_img(rf"$+\;\cdots\;\mathrm{{({rest}\ more\ terms)}}$")
+        # stop early if this token (plus the "more" note) would not fit
+        if y + max(im.height, more.height) > lines_max_y or \
+           (y + 2 * im.height + 3 > lines_max_y and x + im.width + more.width > W - PAD):
+            panel.paste(more, (int(x), int(y)), more)
+            break
+        panel.paste(im, (int(x), int(y)), im)
+        x += im.width + gap
+        line_h = max(line_h, im.height)
+    return panel
 
 def frame(N, t_pen, trace_t=None):
     im = Image.new("RGB", (W * SS, H * SS), "white")
@@ -97,6 +163,8 @@ def frame(N, t_pen, trace_t=None):
         return [(x * SS, y * SS) for x, y in pts]
     # target outline (gray)
     dr.line(P(target_pts + [target_pts[0]]), fill=GRAY, width=2 * SS, joint="curve")
+    for hp in hole_pts:                  # holes: shown, not approximated
+        dr.line(P(hp + [hp[0]]), fill=GRAY, width=2 * SS, joint="curve")
     # partial sum S_N (black)
     tt = np.linspace(0, 1, 900, endpoint=False) if trace_t is None else trace_t
     curve = [tuple(p) for p in px(partial_sum(N, tt))]
@@ -123,7 +191,12 @@ def frame(N, t_pen, trace_t=None):
     dr.ellipse([(xp - 3.5) * SS, (yp - 3.5) * SS, (xp + 3.5) * SS, (yp + 3.5) * SS], fill=RED)
     im = im.resize((W, H), Image.LANCZOS)
     ImageDraw.Draw(im).text((PAD, H - 26), f"N = {N}", font=LABEL_FONT, fill=(0, 0, 0))
-    return im
+    full = Image.new("RGB", (W, H + EXPR_H), "white")
+    full.paste(im, (0, 0))
+    full.paste(PANELS.setdefault(N, expr_panel(N)), (0, H))
+    return full
+
+PANELS = {}
 
 if PREVIEW:
     frame(25, 0.3).save(PREVIEW)
@@ -138,10 +211,7 @@ for k, N in enumerate(Ns):
     for i in range(1, steps + 1):
         t = i / steps
         frames.append(frame(N, t % 1.0, trace_t=np.linspace(0, t, max(2, int(900 * t)))))
-        durations.append(45)
-    durations[-1] = 650                  # pause on the completed curve
-# hold the final, closest approximation
-durations[-1] = 2500
+        durations.append(45)             # constant speed: no pauses between cycles
 
 # one shared palette (from the last frame: white, gray, black, reds) so colours
 # stay identical across frames -- per-frame palettes tinted the black label red
