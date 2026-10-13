@@ -1,0 +1,36 @@
+---
+title: "Page not found"
+subtitle: "Sorry, there's nothing at this address."
+toc: false
+search: false
+---
+
+```{=html}
+<script>
+// Old-site addresses (jack.thomaslabs.co.uk) -> new locations. If the missing
+// address matches one of these, forward the visitor instead of showing the 404.
+(function () {
+  var p = decodeURIComponent(location.pathname);
+  var MOVED = [
+    [/^\/Notes\/posts\/PDE@umn\/?/i,    "/notes/posts/locality-interatomic/"],
+    [/^\/Notes\/posts\/body-order\/?/i, "/notes/posts/body-ordered/"],
+    [/^\/Notes\/?(.*)$/,                "/notes/$1"],       // capital N -> lower case
+    [/^\/teaching\/?$/,                 "/teaching.html"],
+    [/^\/L'Aquila\/?/,                  "/notes/posts/screening-rhf/"]
+  ];
+  for (var i = 0; i < MOVED.length; i++) {
+    if (MOVED[i][0].test(p)) {
+      location.replace(p.replace(MOVED[i][0], MOVED[i][1]) + location.hash);
+      return;
+    }
+  }
+})();
+</script>
+```
+
+::: {.notfound}
+The page you were looking for may have moved, or the address may be mistyped.
+Try one of these instead, or use the search (top right).
+
+[Home](/index.html){.notfound-link} [Teaching](/teaching.html){.notfound-link} [Events](/events.html){.notfound-link} [Notes](/notes/index.html){.notfound-link}
+:::

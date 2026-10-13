@@ -225,7 +225,7 @@ subtitle: "Talks, posters, seminars and conferences"
 [Jul]{.ev-month}
 
 ::: {.ev-body}
-[[16th U.S. National Congress on Computational Mechanics](http://16.usnccm.org/)]{.ev-title}
+[16th U.S. National Congress on Computational Mechanics]{.ev-title}
 
 [Contributed talk]{.ev-badge .talk} [Sparsity of the Tight Binding Potential Energy Landscape <span class='ev-context'>(Materials Modelling Across Scales: From First Principles Calculations to Mesoscale Physics)</span>]{.ev-what}
 
@@ -289,7 +289,7 @@ subtitle: "Talks, posters, seminars and conferences"
 [Jun]{.ev-month}
 
 ::: {.ev-body}
-[[SIAM-IMA Student Chapter Conference](https://sites.google.com/view/siam-ima-reading-chapter/home?authuser=0)]{.ev-title}\
+[SIAM-IMA Student Chapter Conference]{.ev-title}\
 [University of Reading (online)]{.ev-where}
 
 [Attended]{.ev-badge .attended}
@@ -354,7 +354,7 @@ subtitle: "Talks, posters, seminars and conferences"
 [Apr]{.ev-month}
 
 ::: {.ev-body}
-[[British Applied Mathematics Colloquium](https://www.bath.ac.uk/events/british-applied-mathematics-colloquium-2019/)]{.ev-title}\
+[British Applied Mathematics Colloquium]{.ev-title}\
 [University of Bath]{.ev-where}
 
 [Contributed talk]{.ev-badge .talk} [Zero Temperature Limit of the Tight Binding Model for Point Defects]{.ev-what}
@@ -395,7 +395,7 @@ subtitle: "Talks, posters, seminars and conferences"
 [Jul]{.ev-month}
 
 ::: {.ev-body}
-[[ISCD Summer School on Scientific Trends at the Interfaces: Mathematics -- Chemistry -- High Performance Computing](http://iscd.sorbonne-universite.fr/academics/schools/)]{.ev-title}\
+[ISCD Summer School on Scientific Trends at the Interfaces: Mathematics -- Chemistry -- High Performance Computing]{.ev-title}\
 [Roscoff, France (July -- August)]{.ev-where}
 
 [Summer school]{.ev-badge .attended}

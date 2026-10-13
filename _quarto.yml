@@ -7,7 +7,7 @@ project:
 
 website:
   title: "Jack Thomas"
-  site-url: https://jack.thomaslabs.co.uk
+  site-url: https://jackrthomas.github.io
   favicon: images/pi.ico
   page-navigation: false
   navbar:

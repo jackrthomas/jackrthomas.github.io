@@ -14,7 +14,7 @@ Instructor, 2025--27 -- [MATH 5485](https://umtc.catalog.prod.coursedog.com/cour
     <strong>Introduction to Numerical Methods I</strong><br>Fall 2025 &middot; Fall 2026
     <div class="course-options">
       <span>Choose a semester</span>
-      <a href="https://jack.thomaslabs.co.uk/teaching/Math5485-Fall-2026/">Fall 2026</a>
+      <a href="https://jackrthomas.github.io/Math5485/">Fall 2026</a>
       <a href="https://jack.thomaslabs.co.uk/teaching/Math5485-Fall-2025/">Fall 2025</a>
     </div>
   </div>
