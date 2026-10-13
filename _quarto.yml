@@ -17,8 +17,12 @@ website:
         text: Teaching
       - href: events.qmd
         text: Events
-      - href: notes/index.qmd
-        text: Notes
+    tools:
+      # Notes as a unicode icon. Tools stay in the navbar on small screens
+      # (they don't fold into the menu); the glyph itself is drawn in styles.css.
+      - icon: notes-glyph
+        href: notes/index.qmd
+        aria-label: Notes
   page-footer:
     right: "Updated: Oct 2026"
 

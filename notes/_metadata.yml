@@ -1,8 +1,11 @@
 # Applies to every page under notes/ (the listing and all posts).
-# The site-wide stylesheet is listed again so this list adds to it rather
-# than replacing it; notes.css comes last so its rules win.
+# Lists the site-wide files again so these lists add to them rather than
+# replacing them; the notes-specific file comes last in each list.
 format:
   html:
     css:
       - ../styles.css
       - notes.css
+    include-after-body:
+      - ../nav-preview.html
+      - collapse-proofs.html

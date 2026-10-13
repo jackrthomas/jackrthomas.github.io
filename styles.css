@@ -140,7 +140,10 @@ iframe.pdf-embed.poster { aspect-ratio: 1684 / 2384; max-height: 95vh; }
 
 
 /* Proofs in notes posts (theorem boxes themselves are styled in notes/notes.css) */
-div.proof:not(.remark) { margin: -0.5rem 0 1.25rem; padding: 0.25rem 1rem 0.5rem; border-left: 1px dashed #c9a5b7; }
+div.proof:not(.remark) { margin: -0.5rem 0 1.25rem; }
+/* collapsed proofs (notes/collapse-proofs.html); box style comes from notes.css "details" */
+details.proof-details > summary { font-style: italic; }
+details.proof-details > :last-child { margin-bottom: 0.25rem; }
 
 /* Teaching page */
 .role-note { font-size: 0.9rem; color: #6c6c6c; }
@@ -308,3 +311,19 @@ a.ev-notes {
 .nav-preview-card-title { font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
 .nav-preview-card-sub { font-size: 0.9rem; font-weight: 300; margin-top: 0.15rem; }
 .nav-preview-card-sub:empty { display: none; }
+
+/* Navbar "Notes" link: a unicode glyph in the tools area (always visible, also on phones) */
+.navbar a.quarto-navigation-tool[aria-label="Notes"] {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.1rem 0.45rem !important; border-radius: 6px; color: #fff;
+}
+.navbar a.quarto-navigation-tool[aria-label="Notes"] i.bi::before {
+  content: "\270E";                 /* ✎ */
+  font-family: "Lato", "Segoe UI Symbol", "DejaVu Sans", sans-serif;
+  font-style: normal; font-size: 1.35rem; line-height: 1; vertical-align: 0;
+}
+.navbar a.quarto-navigation-tool[aria-label="Notes"]:hover,
+.navbar a.quarto-navigation-tool[aria-label="Notes"]:focus-visible { background: #fff; color: #700038 !important; }
+@media (max-width: 991.98px) {
+  .navbar .quarto-navbar-tools { margin-left: auto; }   /* keep ✎ at the right, beside search */
+}
