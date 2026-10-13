@@ -103,10 +103,17 @@ GRAY, BLACK = (175, 175, 175), (0, 0, 0)
 RED = (112, 0, 56)                       # the site maroon (#700038) for the epicycles
 target_pts = [tuple(p) for p in px(z)]
 hole_pts = [[tuple(p) for p in px(h)] for h in holes_z]
-LABEL_FONT = ImageFont.truetype(FONT, 15)
+
 # the "N = ..." label sits in the middle of the 0's hole (the hole nearest the centre)
 zero_hole = min(holes_z, key=lambda h: abs(h.mean().real))
 (LABEL_X, LABEL_Y), = px(np.array([zero_hole.mean()]))
+# single-line "N = ..." label, sized so the widest one ("N = 404") fits inside the 0
+_hp = px(zero_hole)
+HOLE_W = _hp[:, 0].max() - _hp[:, 0].min()
+LABEL_SIZE = 24
+while ImageFont.truetype(FONT, LABEL_SIZE).getlength("N = 404") > 0.86 * HOLE_W and LABEL_SIZE > 8:
+    LABEL_SIZE -= 1
+LABEL_FONT = ImageFont.truetype(FONT, LABEL_SIZE)
 SS = 2                                   # supersampling for smooth lines
 
 # ---------------------------------------------------------- formula panel ----
@@ -123,12 +130,13 @@ def math_img(tex):
         _cache[tex] = Image.open(buf).convert("RGBA")
     return _cache[tex]
 
+SCALE_EXP = 2                            # S_N(t) = 10^{-2} [ ... ]: two more digits per coefficient
 def num(v):
-    v = round(v, 2) + 0.0                # +0.0 turns -0.0 into 0.0
+    v = round(v * 10 ** SCALE_EXP, 2) + 0.0   # +0.0 turns -0.0 into 0.0
     return f"{v:.2f}"
 def cnum(w):
-    im = round(w.imag, 2) + 0.0
-    return f"({num(w.real)}{'-' if im < 0 else '+'}{num(abs(im))}i)"
+    im = round(w.imag * 10 ** SCALE_EXP, 2) + 0.0   # only used for the sign
+    return f"({num(w.real)}{'-' if im < 0 else '+'}{num(abs(w.imag))}i)"
 def term_tex(j, first=False):
     if j == 0:
         return "$" + cnum(coef(0)) + "$"
@@ -139,7 +147,9 @@ def term_tex(j, first=False):
 def expr_panel(N):
     panel = Image.new("RGB", (W, EXPR_H), "white")
     order = [0] + [j for k in range(1, N + 1) for j in (k, -k)]
-    tokens = [rf"$S_{{{N}}}(t)\;=\;$"] + [term_tex(j, first=(i == 0)) for i, j in enumerate(order)]
+    tokens = ([rf"$S_{{{N}}}(t)\;=\;10^{{-{SCALE_EXP}}}\,[$"]
+              + [term_tex(j, first=(i == 0)) for i, j in enumerate(order)])
+    tokens[-1] = tokens[-1][:-1] + r"]$"   # close the bracket after the last term
     x, y, line_h, gap = PAD, 6, 0, 4
     lines_max_y = EXPR_H - 8
     for i, tok in enumerate(tokens):
@@ -148,7 +158,7 @@ def expr_panel(N):
             x, y = PAD + 18, y + line_h + 3
             line_h = 0
         rest = len(tokens) - i
-        more = math_img(rf"$+\;\cdots\;\mathrm{{({rest}\ more\ terms)}}$")
+        more = math_img(rf"$+\;\cdots\;]\;\;\mathrm{{({rest}\ more\ terms)}}$")
         # stop early if this token (plus the "more" note) would not fit
         if y + max(im.height, more.height) > lines_max_y or \
            (y + 2 * im.height + 3 > lines_max_y and x + im.width + more.width > W - PAD):
@@ -193,8 +203,8 @@ def frame(N, t_pen, trace_t=None):
     (xp, yp), = px(np.array([pos]))
     dr.ellipse([(xp - 3.5) * SS, (yp - 3.5) * SS, (xp + 3.5) * SS, (yp + 3.5) * SS], fill=RED)
     im = im.resize((W, H), Image.LANCZOS)
-    ImageDraw.Draw(im).multiline_text((LABEL_X, LABEL_Y), f"N =\n{N}", font=LABEL_FONT,
-                                      fill=(0, 0, 0), anchor="mm", align="center", spacing=2)
+    ImageDraw.Draw(im).text((LABEL_X, LABEL_Y), f"N = {N}", font=LABEL_FONT,
+                            fill=(0, 0, 0), anchor="mm")
     if N not in PANELS:
         PANELS[N] = expr_panel(N)
     full = Image.new("RGB", (W, H + EXPR_H), "white")
