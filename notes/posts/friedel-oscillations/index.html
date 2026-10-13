@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.10.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jack Thomas">
+<meta name="description" content="Friedel oscillations in the reduced Hartree-Fock model (joint work with Antoine Levitt).">
+
+<title>Friedel Oscillations – Jack Thomas</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/pi.ico" rel="icon">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-7d96399e40717c7fd1e0a200125b6c32.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../images/pi.png" alt="" class="navbar-logo light-content">
+    <img src="../../../images/pi.png" alt="" class="navbar-logo dark-content">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Jack Thomas</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../teaching.html"> 
+<span class="menu-text">Teaching</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../events.html"> 
+<span class="menu-text">Events</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../notes/index.html"> 
+<span class="menu-text">Notes</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Friedel Oscillations</h1>
+            <p class="subtitle lead">Poster: Friedel oscillations in the reduced Hartree-Fock model</p>
+                  <div>
+        <div class="description">
+          Friedel oscillations in the reduced Hartree-Fock model (joint work with Antoine Levitt).
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">Poster</div>
+                <div class="quarto-category">Conference</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Jack Thomas </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">January 2024</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link active" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#freeElectronGas" id="toc-freeElectronGas" class="nav-link" data-scroll-target="#freeElectronGas">Free electron gas</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>Presented at:</p>
+<ul>
+<li>May 2025 – <a href="https://events.simonsfoundation.org/event/6393d09c-6300-4c52-9655-272d0c05c96d/summary?RefId=Summary">Moiré Materials Magic Workshop</a>, Flatiron Institute, New York</li>
+<li>December 2024 – <a href="https://www.math.lmu.de/~nam/MPDE2024.html">Mathematical Physics and PDEs</a>, Herrsching (<a href="poster-herrsching-2024.pdf">version presented there</a>; see also the <a href="../../../notes/posts/screening-rhf/index.html#herrsching-2024">talk</a>)</li>
+<li>January 2024 – <a href="https://lcpq.github.io/MSQM/">Workshop on Model Systems in Quantum Mechanics</a>, Toulouse</li>
+</ul>
+<iframe class="pdf-embed poster" src="poster.pdf#navpanes=0&amp;pagemode=none&amp;view=FitH">
+</iframe>
+<p><a href="poster.pdf">[open fullscreen]</a></p>
+<div class="hidden">
+<p><span class="math display">\[
+\def\ep{\varepsilon}
+\def\bm{\bf}
+\def\si{\mathrm{si}}
+\def\coloneqq{:=}
+\]</span></p>
+</div>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>When a defect potential is placed in a material, the material rearranges and the total potential at long-range is screened by the electrons. In the finite temperature reduced Hartree-Fock model, small defects are completely screened <a href="#ref-2">[2]</a>; the total change in potential decays exponentially. On the other hand, in metals at zero temperature, the presence of the Fermi-surface introduces non-analytic behaviour into the independent-particle susceptibility <span class="math inline">\(\chi_0\)</span>, leading to what are known as Friedel oscillations; the total potential oscillates and decays algebraically, with exponent depending on the dimensionality.</p>
+<p>Here, you can find links to the references that are cited in the poster:</p>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<ol type="1">
+<li><span id="ref-1"></span>Michael Greenblatt. Resolution of singularities, asymptotic expansions of integrals and related phenomena. Journal d’Analyse Mathematique 111.1 (2010), pp.&nbsp;221–245. <a href="https://link.springer.com/article/10.1007/s11854-010-0016-1">[doi]</a> <a href="https://arxiv.org/abs/0709.2496">[arXiv]</a></li>
+<li><span id="ref-2"></span>Antoine Levitt. Screening in the Finite-Temperature Reduced Hartree–Fock Model. Archive for Rational Mechanics and Analysis 238.2 (2020), pp.&nbsp;901–927. <a href="https://link.springer.com/article/10.1007/s00205-020-01560-0">[doi]</a> <a href="https://arxiv.org/abs/1810.03342">[arXiv]</a></li>
+<li><span id="ref-3"></span>Antoine Levitt and Jack Thomas. Locality in the reduced Hartree–Fock model. Unpublished manuscript.</li>
+<li><span id="ref-4"></span>Bogdan Mihaila. Lindhard function of a d-dimensional Fermi gas (2011). <a href="https://arxiv.org/abs/1111.5337">[link]</a></li>
+<li><span id="ref-5"></span>George E. Simion and Gabriele F. Giuliani. Friedel oscillations in a Fermi liquid. Physical Review B 72.4 (2005). <a href="https://journals.aps.org/prb/abstract/10.1103/PhysRevB.72.045127">[doi]</a></li>
+<li><span id="ref-6"></span>Elias M. Stein. Harmonic Analysis. Princeton University Press, Dec.&nbsp;1993. <a href="https://www.jstor.org/stable/j.ctt1bpmb3s">[link]</a></li>
+<li><span id="ref-7"></span>Jens Lindhard. On the properties of a gas of charged particles. Dan. Mat. Fys. Medd. 28, no.8 (1954).</li>
+<li><span id="ref-8"></span>Table of Integrals, Series, and Products. Elsevier, 2015. <a href="https://www.sciencedirect.com/book/9780123849335/table-of-integrals-series-and-products">[link]</a></li>
+</ol>
+<hr>
+<p>Here are some additional details not on the poster, including a section on the results for the free electron gas:</p>
+</section>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Suppose we have a lattice <span class="math inline">\(\mathcal R \subset \mathbb R^d\)</span> and an associated unit cell <span class="math inline">\(\Gamma\)</span>. Define <span class="math inline">\(L^2_{\mathrm{per}} \coloneqq \{ f \in L^2(\Gamma) \colon f \text{ is }\mathcal{R}\text{-periodic}\}\)</span>. For a fixed periodic potential <span class="math inline">\(W_{\mathrm{per}} \in L^2_{\mathrm{per}}\)</span>, associated Fermi level <span class="math inline">\(\ep_{\mathrm{F}}\)</span>, consider the response to an effective potential <span class="math inline">\(V\)</span>: <span class="math display">\[
+\begin{align}
+  \rho_V(x) &amp;= F_{\ep_{\mathrm{F}}}\big(-\Delta + W_{\mathrm{per}} +V \big)(x,x) \nonumber \\
+  &amp;= \rho_0(x) + \chi_0V(x) + \cdots \tag{1}\label{eq:rho-exp}
+\end{align}
+\]</span> where <span class="math inline">\(F_{\ep_{\mathrm{F}}}(x) \coloneqq \big( 1 + e^{\frac{x - \ep_{\mathrm{F}}}{k_\mathrm{B}T}}\big)^{-1}\)</span> is the Fermi-Dirac distribution with temperature <span class="math inline">\(T\geq0\)</span> and <span class="math inline">\(\chi_0\)</span> is the <em>independent particle susceptibility operator</em>, describing the linear response to the density of a non-interacting system of electrons.</p>
+<p>In the linear model the interaction between the electrons is neglected and we consider <span class="math inline">\(V = V_{\mathrm{def}}\)</span>, whereas the reduced Hartree-Fock model takes the form <span class="math display">\[
+\begin{align}
+  V = V_{\mathrm{def}} + \big( \rho_V - \rho_0 \big) \star |\,\cdot\,|^{-1}.
+  \tag{2}\label{eq:rHF}
+\end{align}
+\]</span></p>
+<section id="finite-temperature" class="level4">
+<h4 class="anchored" data-anchor-id="finite-temperature">Finite temperature</h4>
+<p>In the finite temperature case (<span class="math inline">\(T&gt;0\)</span>), the response <span class="math inline">\(\rho_V - \rho_0\)</span> decays “as quickly as” <span class="math inline">\(V\)</span>: That is, we have <span class="math display">\[
+V \in L^2_N \,\,\Rightarrow\,\, \rho_V - \rho_0 \in L^2_N,
+\]</span> where <span class="math inline">\(L^2_N \coloneqq \{ \phi \colon (1 + |x|^2)^{\frac{N}{2}} \phi \in L^2\}\)</span>. Moreover, the asymptotic behaviour of <span class="math inline">\(\rho_V - \rho_0\)</span> is given by the first term of the expansion: <span class="math display">\[
+\rho_V - \rho_0 - \chi_0 V \in L^2_{2N}
+\]</span> for all <span class="math inline">\(V \in L^2_N\)</span>. One is therefore able to apply a fixed point argument to <span class="math inline">\(\eqref{eq:rHF}\)</span> to conclude that small defects are completely screened: <span class="math inline">\(V(V_{\mathrm{def}})\)</span> decays exponentially <a href="#ref-2">[2]</a>.</p>
+</section>
+<section id="zero-temperature" class="level4">
+<h4 class="anchored" data-anchor-id="zero-temperature">Zero temperature</h4>
+<p>At zero temperature, the Fermi surface leads to fundamentally different behaviour: all terms in the expansion <span class="math inline">\(\eqref{eq:rho-exp}\)</span> oscillate and decay algebraically with rate depending on the Fermi surface. Here, we consider the behaviour of <span class="math inline">\(\chi_0\)</span> for the free electron gas. This behaviour more generally follows from the corresponding behaviour of the Green’s function (see poster).</p>
+</section>
+</section>
+<section id="freeElectronGas" class="level2">
+<h2 class="anchored" data-anchor-id="freeElectronGas">Free electron gas</h2>
+<p>We may compute <span class="math inline">\(\chi_0\)</span> explicitly in Fourier space: The expression <span class="math inline">\(\chi_0(q) = \int_{\mathcal B} \frac{f_{k+q} - f_k}{\ep_{k+q} - \ep_k} \mathrm{d}k\)</span> leads to <a href="#ref-4">[4]</a> <span class="math display">\[
+\begin{align}
+  \chi_0(q) &amp;= -c_d k_{\mathrm{F}}^{d-2} u_d\big( \tfrac{|q|}{k_{\mathrm{F}}} \big),
+  \qquad \text{where} \\
+  u_d(q) &amp;:=
+  \begin{cases}
+    \frac{1}{q} \log \left| \frac{2 + q}{2 - q} \right| &amp;\text{if } d=1 \\
+    1 - \Theta( q - 2 ) \sqrt{1 - \frac{4}{q^2}} &amp;\text{if } d=2 \\
+    1 + \frac{4 - q^2}{4q} \log \left| \frac{2 + q}{2 - q} \right| &amp;\text{if } d=3,
+  \end{cases}
+  \tag{3}\label{eq:ud}
+\end{align}
+\]</span> <span class="math inline">\(\Theta = \bm 1_{[0,\infty)}\)</span> is the Heaviside function, and <span class="math inline">\(c_1 = \tfrac{1}{\pi}\)</span>, <span class="math inline">\(c_2 = \tfrac{1}{2\pi}\)</span>, <span class="math inline">\(c_3 = \tfrac{1}{4\pi^2}\)</span>. In this case, <span class="math inline">\(\chi_0\)</span> is known as the <em>Lindhard function</em> <a href="#ref-7">[7]</a>. In particular, <span class="math inline">\(\chi_0(q)\)</span> is smooth away from points <span class="math inline">\(q = \bm k_1 - \bm k_2\)</span> that connects two points of the Fermi surface <span class="math inline">\(\bm k_1 \not= \bm k_2 \in S(\varepsilon_{\mathrm{F}})\)</span> where the tangent planes are parallel. For the free electron gas, this occurs on the sphere <span class="math inline">\(|q| = 2 k_{\mathrm{F}}\)</span>. For <span class="math inline">\(d = 1\)</span>, the logarithmic divergence is responsible for the <em>Peierls instability</em>, whereas <span class="math inline">\(\nabla\chi_0(q)\)</span> has inverse square root and logarithmic singularities in dimensions <span class="math inline">\(2\)</span> and <span class="math inline">\(3\)</span>, respectively.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../../notes/posts/friedel-oscillations/Fig1.png" class="img-fluid figure-img"></p>
+<figcaption><strong>Lindhard function.</strong> Plot of the Lindhard function <span class="math inline">\(\chi_0(q)\)</span> for <span class="math inline">\(d = 1\)</span> (blue), <span class="math inline">\(2\)</span> (red), and <span class="math inline">\(3\)</span> (green).</figcaption>
+</figure>
+</div>
+<p>Computing the Fourier transform explicitly, one can show that <span class="math inline">\(\chi_0(x)\)</span> oscillates and has <span class="math inline">\(|x|^{-d}\)</span> decay: <span class="math display">\[
+\begin{align}
+  \chi_0(x) &amp;=
+  \left\{\begin{matrix}
+    \tfrac{1}{2\pi} \si \, 2k_\mathrm{F} |x| \quad &amp;\text{if } d = 1 \\
+    \tfrac{1}{8\pi} k_{\mathrm{F}}^2\big[ J_0 Y_0 + J_1 Y_1\big]( k_\mathrm{F} |x| ) &amp;\text{if } d = 2 \\
+    \tfrac{1}{4} \tfrac{1}{(2\pi)^3}\big[ 2 k_\mathrm{F} \cos2 k_\mathrm{F} |x| - \frac{\sin2 k_\mathrm{F} |x|}{|x|} \big] |x|^{-3} &amp;\text{if } d = 3
+  \end{matrix}
+  \right\} \\
+  &amp;= \tfrac{1}{2} k_\mathrm{F}^{d-2}
+  \frac{\sin (2k_{\mathrm{F}} |x| + (d-2)\tfrac{\pi}{2})}{(2\pi \, |x|)^d}
+  + O\big( |x|^{-(d + 1)} \big)
+  \tag{4}\label{eq:chi_0(r)}
+\end{align}
+\]</span> as <span class="math inline">\(|x| \to \infty\)</span>. Here, <span class="math inline">\(\si(x) \coloneqq - \int_x^\infty \frac{\sin t}{t} \mathrm{d}t\)</span> is the sine integral and <span class="math inline">\(J_n,Y_n\)</span> are Bessel functions of the first and second kind, respectively. Using the asymptotic behaviour of these special functions <a href="#ref-8">[8]</a> we obtain <span class="math inline">\(\eqref{eq:chi_0(r)}\)</span> as <span class="math inline">\(|x|\to\infty\)</span>.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Navbar hover preview. While hovering a navbar link:
+//  - if the page's title banner is on screen, the banner shows that page's
+//    title and subtitle (restored when the pointer leaves);
+//  - if the user has scrolled the banner out of view, a small card with the
+//    same title and subtitle drops down under the hovered link instead.
+(function () {
+  var PAGES = {
+    "index.html":         ["Jack Thomas", "Postdoctoral Researcher"],
+    "teaching.html":      ["Teaching", "Courses, teaching resources and experience"],
+    "events.html":        ["Events", "Talks, posters, seminars and conferences"],
+    "notes/index.html":   ["Notes", "Talks, group meetings and notes"]
+  };
+
+  function pageKey(href) {
+    var path = new URL(href, location.href).pathname.replace(/\/$/, "/index.html");
+    // longest first, so "notes/index.html" wins over "index.html"
+    var keys = Object.keys(PAGES).sort(function (x, y) { return y.length - x.length; });
+    for (var i = 0; i < keys.length; i++) {
+      if (path.endsWith("/" + keys[i])) return keys[i];
+    }
+    return null;
+  }
+
+  // --- banner swap ----------------------------------------------------------
+  var banner = document.querySelector(".quarto-title-banner");
+  var title = banner && banner.querySelector("h1.title");
+  var subtitle = null, original = null;
+  if (title) {
+    subtitle = title.parentNode.querySelector(".subtitle");
+    original = { title: title.textContent, subtitle: subtitle ? subtitle.textContent : null };
+    if (!subtitle) {
+      subtitle = document.createElement("p");
+      subtitle.className = "subtitle lead nav-preview-subtitle";
+      subtitle.style.display = "none";
+      title.insertAdjacentElement("afterend", subtitle);
+    }
+  }
+  function bannerVisible() {
+    if (!banner) return false;
+    var nav = document.querySelector("#quarto-header");
+    var navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
+    var r = title.getBoundingClientRect();
+    // the title itself must be below the (fixed) navbar and on screen
+    return r.top >= navBottom - 2 && r.bottom <= window.innerHeight;
+  }
+
+  // --- floating card (used when the banner is scrolled away) ----------------
+  var card = document.createElement("div");
+  card.className = "nav-preview-card";
+  card.setAttribute("aria-hidden", "true");
+  card.innerHTML = '<div class="nav-preview-card-title"></div><div class="nav-preview-card-sub"></div>';
+  document.body.appendChild(card);
+
+  function showCard(link, t, s) {
+    card.querySelector(".nav-preview-card-title").textContent = t;
+    card.querySelector(".nav-preview-card-sub").textContent = s || "";
+    var r = link.getBoundingClientRect();
+    card.classList.add("visible");
+    // align under the link, kept inside the window
+    var w = card.offsetWidth;
+    var left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8);
+    card.style.left = left + "px";
+    card.style.top = (r.bottom + 8) + "px";
+  }
+
+  function show(link, key) {
+    var t = PAGES[key][0], s = PAGES[key][1];
+    if (title && bannerVisible()) {
+      banner.classList.add("nav-previewing");
+      title.textContent = t;
+      subtitle.textContent = s || "";
+      subtitle.style.display = s ? "" : "none";
+    } else {
+      showCard(link, t, s);
+    }
+  }
+  function restore() {
+    card.classList.remove("visible");
+    if (!title) return;
+    banner.classList.remove("nav-previewing");
+    title.textContent = original.title;
+    subtitle.textContent = original.subtitle || "";
+    subtitle.style.display = original.subtitle ? "" : "none";
+  }
+
+  document.querySelectorAll(".navbar a.nav-link, .navbar a.navbar-brand").forEach(function (a) {
+    var key = pageKey(a.getAttribute("href"));
+    if (!key) return;
+    a.addEventListener("mouseenter", function () { show(a, key); });
+    a.addEventListener("mouseleave", restore);
+    a.addEventListener("focus", function () { show(a, key); });
+    a.addEventListener("blur", restore);
+  });
+  // scrolling while previewing would leave a stale preview behind
+  window.addEventListener("scroll", restore, { passive: true });
+})();
+</script>
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/jack\.thomaslabs\.co\.uk");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+<p>Updated: Oct 2026</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
