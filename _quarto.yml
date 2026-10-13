@@ -1,0 +1,36 @@
+project:
+  type: website
+  resources:
+    - bib.bib
+    - "teaching/**/*.pdf"
+    - "notes/posts/**/*.pdf"
+
+website:
+  title: "Jack Thomas"
+  site-url: https://jack.thomaslabs.co.uk
+  favicon: images/pi.ico
+  page-navigation: false
+  navbar:
+    logo: images/pi.png
+    right:
+      - href: teaching.qmd
+        text: Teaching
+      - href: events.qmd
+        text: Events
+      - href: notes/index.qmd
+        text: Notes
+  page-footer:
+    right: "Updated: Oct 2026"
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss]
+    css: styles.css
+    include-after-body: nav-preview.html
+    toc: false
+    title-block-banner: true
+    smooth-scroll: true
+    html-math-method: mathjax
+    link-external-newwindow: true
+    link-external-icon: false

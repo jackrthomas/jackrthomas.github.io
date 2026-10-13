@@ -1,0 +1,29 @@
+/*-- scss:defaults --*/
+
+// Colours carried over from the original site
+$maroon:       #700038;
+$maroon-light: #8b1b59;
+
+$primary:   $maroon;
+$link-color: $maroon;
+$navbar-bg: $maroon;
+$navbar-fg: #ffffff;
+$navbar-hl: #f3d3e2;
+$footer-bg: $maroon;
+$footer-fg: #ffffff;
+
+$font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headings-font-weight: 700;
+
+/*-- scss:rules --*/
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+
+a { text-decoration: none; }
+
+.nav-footer a, .nav-footer { color: #ffffff; }
+
+.quarto-title-banner {
+  background-color: $maroon;
+  color: #ffffff;
+}

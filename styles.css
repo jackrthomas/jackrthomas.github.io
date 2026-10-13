@@ -1,0 +1,322 @@
+/* css styles */
+
+/* ---- Home page ---------------------------------------------------- */
+
+.affiliation {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Boxed sections (publications / about-events-teaching) */
+.boxed {
+  border: 1px solid #e3cbd7;
+  border-left: 5px solid #700038;
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+  background: #fdf8fa;
+}
+
+.boxed h3 {
+  font-style: italic;
+  font-size: 1.15rem;
+  margin-top: 0.75rem;
+}
+
+/* Publication lists: numbered in reverse like the original ([P1], [1], ...) */
+/* ---- Papers tab: same timeline look as About / Events, but static --------
+   Numbers come from data-n so they match the original site ([8] = preprint).
+   No hover effect: link buttons are always shown; "abstract" opens on click. */
+ol.pubs { list-style: none; padding: 0; margin: 0; }
+.pub-num { font-size: 1.15rem; color: #700038; letter-spacing: 0; text-transform: none; }  /* keeps "MMath", "MSc", "PhD" */
+.pub-venue { font-size: 0.92rem; }
+.pub-actions { margin-top: 0.35rem !important; }
+/* hover: the paper turns maroon (shared .cv-item rule); keep its parts readable */
+ol.pubs > li.cv-item:hover .pub-num { color: #fff; }
+ol.pubs > li.cv-item:hover .pub-venue { color: #f7e6ee; }
+/* buttons */
+a.ev-badge.pub-link { color: #700038 !important; text-decoration: none; cursor: pointer; }
+a.ev-badge.pub-link:hover, a.ev-badge.pub-link:focus-visible { background: #700038 !important; color: #fff !important; border-color: #700038; }
+ol.pubs > li.open a.abs-toggle { background: #700038 !important; color: #fff !important; }
+/* on a hovered (maroon) paper the buttons go white-on-maroon, and fill white on their own hover */
+ol.pubs > li.cv-item:hover a.ev-badge.pub-link { color: #fff !important; border-color: #fff; }
+ol.pubs > li.cv-item:hover a.ev-badge.pub-link:hover,
+ol.pubs > li.cv-item:hover a.ev-badge.pub-link:focus-visible,
+ol.pubs > li.cv-item:hover.open a.abs-toggle { background: #fff !important; color: #700038 !important; }
+/* abstract: hidden until its button is clicked */
+.pubs blockquote.abstract {
+  display: block; overflow: hidden; max-height: 0; opacity: 0; margin: 0; padding: 0 1rem;
+  border-left: 3px solid #700038; border-radius: 0 4px 4px 0; background: #fbf3f7;
+  font-size: 0.93rem; line-height: 1.5; color: #333;
+  transition: max-height 0.35s ease, opacity 0.25s ease, margin 0.35s ease, padding 0.35s ease;
+}
+ol.pubs > li.open blockquote.abstract {
+  max-height: 40rem; opacity: 1; margin: 0.6rem 0 0.2rem; padding: 0.5rem 1rem;
+}
+
+.coauthors-label { font-weight: 700; color: #700038; margin-right: 0.3rem; }
+
+.pub-links { text-align: center; margin: 1rem 0 0.5rem; }
+
+/* Events filter: same segmented pill control as the homepage Papers / About toggle */
+.event-filter {
+  display: flex; width: max-content; max-width: 100%; margin: 0 auto 1.5rem;
+  border: 2px solid #700038; border-radius: 999px; padding: 3px; gap: 3px;
+}
+.event-filter button {
+  border: none; border-radius: 999px; padding: 0.35rem 1.4rem; margin: 0;
+  background: transparent; color: #700038; font-weight: 700; font-size: 1rem; white-space: nowrap;
+  transition: background-color 0.12s, color 0.12s;
+}
+.event-filter button:hover { background: #f3d3e2; }
+.event-filter button.active { background: #700038; color: #fff; }
+@media (max-width: 575px) {
+  .event-filter { gap: 1px; }
+  .event-filter button { padding: 0.3rem 0.5rem; font-size: 0.8rem; }
+}
+
+
+/* Embedded PDFs (slides / posters) in notes posts */
+iframe.pdf-embed { display: block; width: 100%; aspect-ratio: 16 / 9; border: 1px solid #ddd; border-radius: 4px; }
+iframe.pdf-embed.poster { aspect-ratio: 1684 / 2384; max-height: 95vh; }
+
+/* Teaching: course cards */
+.course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin: 1rem 0 1.5rem; }
+.course-card {
+  position: relative; display: block; height: 100%; padding: 0 0.5rem 0.75rem; text-align: center;
+  border: 1px solid #e3cbd7; border-radius: 8px; overflow: hidden; color: inherit; cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.course-card:hover, .course-card:focus-within { text-decoration: none; box-shadow: 0 4px 14px rgba(112, 0, 56, 0.18); transform: translateY(-2px); }
+.course-card img { display: block; width: calc(100% + 1rem); margin: 0 -0.5rem 0.6rem; aspect-ratio: 4 / 3; object-fit: contain; background: #fff; }
+.course-card strong { color: #700038; }
+/* Semester chooser: shown on hover (desktop) or tap/focus (phones) */
+.course-options {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.6rem;
+  background: rgba(112, 0, 56, 0.92); color: #fff; opacity: 0; visibility: hidden; transition: opacity 0.15s;
+}
+.course-card:hover .course-options, .course-card:focus-within .course-options { opacity: 1; visibility: visible; }
+.course-options span { font-size: 0.95rem; letter-spacing: 0.03em; }
+.course-options a {
+  min-width: 9rem; padding: 0.45rem 1rem; border-radius: 6px; background: #fff; color: #700038; font-weight: 700;
+}
+.course-options a:hover { background: #f3d3e2; text-decoration: none; }
+
+/* Home: photo left, text right, then full-width Papers / About toggle */
+.home-wrap { max-width: 1100px; margin: 0 auto; }
+.home-intro { display: grid; grid-template-columns: 15rem 1fr; gap: 2.5rem; align-items: center; margin-bottom: 2rem; }
+.home-photo { text-align: center; }
+.profile-photo { width: 13rem; height: 13rem; object-fit: cover; border-radius: 50%; }
+.home-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.4rem; margin-top: 1rem; font-size: 0.85rem; }
+.home-links a, .home-links span {
+  padding: 0.15rem 0.5rem; border: 1px solid #bbb; border-radius: 4px; color: #555;
+}
+.home-links a:hover { border-color: #700038; color: #700038; text-decoration: none; }
+.home-text { font-size: 1.05rem; }
+@media (max-width: 767px) {
+  .home-intro { grid-template-columns: 1fr; gap: 1rem; text-align: center; }
+}
+
+/* Papers / About toggle: segmented pill control */
+.home-toggle > .nav-tabs {
+  display: flex; width: max-content; max-width: 100%; border: 2px solid #700038; border-radius: 999px;
+  padding: 3px; gap: 3px; margin: 0 auto 1rem;
+}
+.home-toggle > .nav-tabs .nav-link {
+  border: none; border-radius: 999px; padding: 0.35rem 1.4rem; color: #700038; font-weight: 700; margin: 0;
+}
+.home-toggle > .nav-tabs .nav-link:hover { background: #f3d3e2; }
+.home-toggle > .nav-tabs .nav-link.active { background: #700038; color: #fff; }
+.home-toggle > .tab-content { border: none; padding: 0; }
+
+/* Navbar: no underline, white pill with maroon text on hover */
+.navbar .navbar-nav .nav-link { border-radius: 6px; padding-left: 0.6rem; padding-right: 0.6rem; transition: background-color 0.15s, color 0.15s; }
+.navbar .navbar-nav .nav-link:hover,
+.navbar .navbar-nav .nav-link:focus-visible { background-color: #ffffff; color: #700038 !important; }
+.navbar a, .navbar a:hover, .navbar a:focus { text-decoration: none !important; }
+.navbar .navbar-nav .nav-link:hover .menu-text,
+.navbar .navbar-nav .nav-link:hover i { color: #700038 !important; }
+
+
+
+/* Theorem-like environments in notes posts */
+div.theorem, div.lemma, div.proposition, div.corollary, div.definition,
+div.example, div.exercise, div.remark {
+  margin: 1.25rem 0; padding: 0.75rem 1rem; border-radius: 4px; border-left: 4px solid #700038;
+}
+div.theorem, div.lemma, div.proposition, div.corollary { background: #fbf3f7; }
+div.definition { background: #f6f1f8; border-left-color: #5b3069; }
+div.example, div.exercise { background: #f7f7f7; border-left-color: #8a8a8a; }
+div.remark { background: transparent; border-left: 3px solid #e3cbd7; }
+div.theorem > p:last-child, div.lemma > p:last-child, div.proposition > p:last-child,
+div.example > p:last-child, div.remark > p:last-child { margin-bottom: 0; }
+.theorem-title { color: #700038; }
+div.example .theorem-title { color: #444; }
+div.proof { margin: -0.5rem 0 1.25rem; padding: 0.25rem 1rem 0.5rem; border-left: 1px dashed #c9a5b7; }
+
+/* Teaching page */
+.role-note { font-size: 0.9rem; color: #6c6c6c; }
+table.teaching-table { font-size: 0.92rem; }
+table.teaching-table td:first-child { white-space: nowrap; font-weight: 700; color: #700038; }
+
+/* Navbar hover preview: hide post-specific banner details while previewing */
+.quarto-title-banner.nav-previewing .description,
+.quarto-title-banner.nav-previewing .quarto-categories { visibility: hidden; }
+.quarto-title-banner h1.title, .quarto-title-banner .subtitle { transition: opacity 0.12s; }
+
+/* While previewing, the banner flips to white with maroon text */
+.quarto-title-banner { transition: background-color 0.15s, color 0.15s; }
+.quarto-title-banner.nav-previewing { background-color: #ffffff !important; color: #700038; box-shadow: inset 0 -2px 0 #700038; }
+.quarto-title-banner.nav-previewing h1.title,
+.quarto-title-banner.nav-previewing .subtitle { color: #700038 !important; }
+
+/* Every link: on hover, no underline, white background, maroon text */
+a { border-radius: 3px; transition: background-color 0.12s, color 0.12s; }
+a:hover, a:focus-visible {
+  text-decoration: none !important; background-color: #ffffff; color: #700038 !important;
+}
+/* image-only links (cards, listing thumbnails) shouldn't get the pill */
+a.course-card:hover, .quarto-listing a:has(> img):hover, .thumbnail a:hover { background-color: transparent; }
+
+/* Navbar logo + name: no white hover box */
+.navbar a.navbar-brand:hover, .navbar a.navbar-brand:focus-visible,
+.navbar .navbar-brand-container a:hover, .navbar .navbar-brand-container a:focus-visible {
+  background-color: transparent; color: #ffffff !important;
+}
+.navbar .navbar-brand-container a:hover .navbar-title { color: #ffffff !important; }
+
+/* ---- Events page: timeline grouped by year ------------------------------ */
+.year-group { position: relative; margin: 0 0 1.75rem; padding-left: 5.5rem; }
+.year-group::before {                 /* vertical rule of the timeline */
+  content: ""; position: absolute; left: 4.6rem; top: 0.4rem; bottom: 0; width: 2px; background: #e3cbd7;
+}
+.year-label {
+  position: absolute; left: 0; top: 0; width: 4rem; text-align: right;
+  font-size: 1.35rem; font-weight: 700; color: #700038;
+}
+.year-group > p:first-child { margin: 0; }
+.event {
+  position: relative; display: grid; grid-template-columns: 2.8rem 1fr; gap: 0.75rem;
+  padding: 0.55rem 0.75rem; margin-bottom: 0.35rem; border-radius: 6px;
+  transition: background-color 0.15s, color 0.15s;
+}
+.event::before {                      /* dot on the timeline */
+  content: ""; position: absolute; left: -1.15rem; top: 0.95rem; width: 10px; height: 10px;
+  border-radius: 50%; background: #fff; border: 2px solid #700038;
+}
+.event p { margin: 0; }
+.ev-month { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: #8a8a8a; padding-top: 0.15rem; }
+.ev-body > p + p { margin-top: 0.3rem; }
+.ev-title { font-weight: 700; }
+.ev-where { font-size: 0.9rem; color: #6c6c6c; }
+.ev-what { font-style: italic; }
+.ev-context { font-style: normal; font-size: 0.85rem; color: #8a8a8a; }
+.ev-badge {
+  display: inline-block; padding: 0.05rem 0.45rem; margin-right: 0.3rem; border-radius: 4px;
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; vertical-align: 0.1em;
+  border: 1px solid currentColor;
+}
+.ev-badge.talk { color: #700038; }
+.ev-badge.seminar { color: #5b3069; }
+.ev-badge.poster { color: #ce7718; }
+.ev-badge.attended { color: #8a8a8a; }
+a.ev-notes {
+  display: inline-block; margin-left: 0.35rem; padding: 0 0.45rem; border-radius: 4px;
+  font-size: 0.8rem; font-weight: 700; background: #700038; color: #fff !important;
+}
+/* Hover: whole entry turns maroon, text and tags go white/pink */
+.event:hover { background-color: #700038; color: #fff; }
+.event:hover::before { background: #700038; border-color: #fff; }
+.event:hover .ev-month, .event:hover .ev-where, .event:hover .ev-context { color: #f3d3e2; }
+.event:hover a { color: #f3d3e2; }
+.event:hover .ev-badge { color: #fff; }
+.event:hover a.ev-notes { background: #fff; color: #700038 !important; }
+@media (max-width: 575px) {
+  .year-group { padding-left: 1.25rem; padding-top: 2rem; }
+  .year-group::before { left: 0.35rem; top: 2.2rem; }
+  .year-label { width: auto; text-align: left; }
+  .event { grid-template-columns: 1fr; gap: 0.1rem; }
+  .event::before { left: -1.15rem; }
+}
+
+/* ---- Title banners: same column (and so the same indentation) on every page */
+#title-block-header .quarto-title-banner { display: block !important; }
+#title-block-header .quarto-title-banner > .quarto-title,
+#title-block-header .quarto-title-banner > .quarto-title-block,
+#title-block-header .quarto-title-banner .quarto-title {
+  max-width: 1100px; margin-left: auto !important; margin-right: auto !important;
+  padding-left: 1.5rem; padding-right: 1.5rem; width: 100%;
+}
+
+/* ---- About tab: CV timeline (same look as the Events timeline) ---------- */
+.cv-group { position: relative; margin: 0.5rem 0 1.75rem; padding-left: 1.6rem; }
+.cv-group::before {
+  content: ""; position: absolute; left: 0.45rem; top: 2.4rem; bottom: 0; width: 2px; background: #e3cbd7;
+}
+.cv-group > p:first-child { margin: 0 0 0.5rem -1.6rem; }
+.cv-label { font-size: 1.35rem; font-weight: 700; color: #700038; }
+.cv-item {
+  position: relative; display: grid; grid-template-columns: 6rem 1fr; gap: 0.9rem;
+  padding: 0.55rem 0.75rem; margin-bottom: 0.35rem; border-radius: 6px;
+  transition: background-color 0.15s, color 0.15s;
+}
+.cv-item::before {
+  content: ""; position: absolute; left: -1.5rem; top: 0.95rem; width: 10px; height: 10px;
+  border-radius: 50%; background: #fff; border: 2px solid #700038;
+}
+.cv-item p { margin: 0; }
+.cv-item .ev-body > p + p { margin-top: 0.3rem; }
+.cv-dates {
+  font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em;
+  color: #8a8a8a; line-height: 1.35; padding-top: 0.2rem;
+}
+.ev-badge.person { color: #5b3069; }
+.ev-badge.funding { color: #2f6b5b; }
+.ev-badge.thesis { color: #700038; }
+.ev-badge.prize { color: #ce7718; }
+.ev-badge.project { color: #8a8a8a; }
+.cv-item:hover { background-color: #700038; color: #fff; }
+.cv-item:hover::before { background: #700038; border-color: #fff; }
+.cv-item:hover .cv-dates, .cv-item:hover .ev-where, .cv-item:hover .ev-context { color: #f3d3e2; }
+.cv-item:hover a { color: #f3d3e2; }
+.cv-item:hover .ev-badge { color: #fff; }
+@media (max-width: 575px) {
+  .cv-item { grid-template-columns: 1fr; gap: 0.1rem; }
+}
+
+/* ---- Notes page: year timeline in the right sidebar ---------------------- */
+.notes-years { margin-top: 1.5rem; }
+.notes-years-list { list-style: none; margin: 0; padding: 0 0 0 1rem; position: relative; }
+.notes-years-list::before {
+  content: ""; position: absolute; left: 0.3rem; top: 0.5rem; bottom: 0.5rem; width: 2px; background: #e3cbd7;
+}
+.notes-years-list li {
+  position: relative; cursor: pointer; padding: 0.1rem 0.5rem; margin: 0.1rem 0; border-radius: 4px;
+  transition: background-color 0.12s, color 0.12s;
+}
+.notes-years-list li::before {
+  content: ""; position: absolute; left: -0.95rem; top: 0.55rem; width: 9px; height: 9px;
+  border-radius: 50%; background: #fff; border: 2px solid #700038;
+}
+.notes-years-list li span { color: #8a8a8a; font-size: 0.85rem; }
+.notes-years-list li:hover { background: #f3d3e2; }
+.notes-years-list li.active { background: #700038; color: #fff; font-weight: 700; }
+.notes-years-list li.active span { color: #f3d3e2; }
+.notes-years-list li.active::before { background: #700038; }
+
+/* Navbar hover preview card (shown when the title banner is scrolled away) */
+.nav-preview-card {
+  position: fixed; z-index: 1100; max-width: min(22rem, calc(100vw - 16px));
+  padding: 0.6rem 0.9rem; border-radius: 6px; background: #fff; color: #700038;
+  border: 2px solid #700038; box-shadow: 0 6px 18px rgba(112, 0, 56, 0.18);
+  opacity: 0; visibility: hidden; transform: translateY(-4px); pointer-events: none;
+  transition: opacity 0.12s, transform 0.12s, visibility 0.12s;
+}
+.nav-preview-card.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.nav-preview-card::before {          /* small pointer towards the link */
+  content: ""; position: absolute; top: -7px; left: 50%; width: 12px; height: 12px; margin-left: -6px;
+  background: #fff; border-left: 2px solid #700038; border-top: 2px solid #700038; transform: rotate(45deg);
+}
+.nav-preview-card-title { font-weight: 700; font-size: 1.1rem; line-height: 1.2; }
+.nav-preview-card-sub { font-size: 0.9rem; font-weight: 300; margin-top: 0.15rem; }
+.nav-preview-card-sub:empty { display: none; }

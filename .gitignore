@@ -1,0 +1,11 @@
+# Quarto build output (published separately on the main branch)
+/_site/
+/.quarto/
+*_files/libs/
+
+# Editor / OS clutter
+.DS_Store
+*.Rproj.user
+
+# Kept locally only: content deliberately not published (repo is public)
+/_hidden-content.qmd

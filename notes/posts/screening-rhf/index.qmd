@@ -1,0 +1,41 @@
+---
+title: "Screening in the reduced Hartree-Fock model"
+subtitle: "Conference talk"
+date: 2024-12-01
+date-format: "MMMM YYYY"   # month-only date: hide the day
+categories: [Talk, Conference]
+description: "Screening of defects in metals and insulators in the reduced Hartree-Fock model (joint work with Éric Cancès and Antoine Levitt)."
+image: thumb.png
+aliases:
+  - /LAquila/index.html
+---
+
+::: {.callout-note collapse="true"}
+## Abstract
+
+Placing a point charge $Q$ at the origin in a vacuum produces a long-range Coulomb potential $Q/(\varepsilon_0 r)$, with $r$ being the distance to the charge and $\varepsilon_0$ the dielectric permittivity of the vacuum. However, in a material, the material reorganises itself; electrons move towards positive charges (or away from negative charges) and the total potential (including the Coulomb interactions, and the response from the electrons) is screened. Metals and insulators display fundamentally different screening behaviours. In metals at finite temperature, electrons are mobile and are able to move long distances to fully screen the defect; a simple empirical model being given by the Yukawa potential $Q e^{-k r}/(\varepsilon_0 r)$. On the other hand, electrons in insulators are tightly bound to the nuclei and are thus unable to move too far from their periodic arrangement. A simple model for the total potential is given by $Q/(\varepsilon_1 r)$ for some $\varepsilon_1 > \varepsilon_0$; one observes partial screening. This heuristic description has been rigorously proved for the reduced Hartree-Fock model at finite temperature [@Levitt2020], and for insulators at zero temperature [@Cances2008; @Cances2010]. In metals at zero temperature, the sharp cut-off in the Fermi-Dirac distribution at the Fermi surface (the surface in reciprocal space separating occupied and unoccupied electron states) causes singularities in Fourier space. As a result, one expects to observe Friedel oscillations; the total potential decays with an algebraic rate with oscillatory tails. The rate of decay and frequency of oscillation depends on the Fermi surface, and thus on the metal, in a non-trivial way. This dependence is only known for the simplest of cases when the external potential is zero, and thus the Fermi surface is spherical (i.e. the Free electron gas). For real metals, the Fermi surface can significantly deviate from this spherical picture. We will discuss ongoing work in explaining this complicated screening behaviour.
+
+Joint work with Éric Cancès and Antoine Levitt.
+:::
+
+Given at:
+
+- February 2025 -- [Mathematical Challenges in Quantum Mechanics, GSSI, L'Aquila](#laquila-2025)
+- December 2024 -- [Mathematical Physics and PDEs, Herrsching](#herrsching-2024)
+
+## Mathematical Challenges in Quantum Mechanics, L'Aquila (February 2025) {#laquila-2025}
+
+- [Mathematical Challenges in Quantum Mechanics: School and Workshop](https://indico.gssi.it/event/696/), Gran Sasso Science Institute, L'Aquila, Italy
+
+<iframe class="pdf-embed" src="slides-laquila-2025.pdf#navpanes=0&pagemode=none&view=FitH"></iframe>
+
+[\[open fullscreen\]](slides-laquila-2025.pdf)
+
+## Mathematical Physics and PDEs, Herrsching (December 2024) {#herrsching-2024}
+
+- [Mathematical Physics and PDEs](https://www.math.lmu.de/~nam/MPDE2024.html), Herrsching
+- I also presented the [Friedel oscillations poster](../friedel-oscillations/index.qmd) at this conference.
+
+<iframe class="pdf-embed" src="slides-herrsching-2024.pdf#navpanes=0&pagemode=none&view=FitH"></iframe>
+
+[\[open fullscreen\]](slides-herrsching-2024.pdf)

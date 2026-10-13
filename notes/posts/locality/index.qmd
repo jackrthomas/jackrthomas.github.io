@@ -1,0 +1,20 @@
+---
+title: "Locality"
+subtitle: "Based on Thomas, Baldwin, Csanyi, Ortner, 2025"
+date: 2025-10-23
+categories: [Group Meeting, Talk]
+description: "Group meeting - Christoph Ortner's group"
+image: thumb.png
+---
+
+- Based on @Thomas2025
+- [notes](notes.pdf)
+
+References mentioned:
+
+- @ChenOrtner16 - Combes-Thomas estimates
+- @ChenLuOrtner18 - thermodynamic limit
+- @ChenOrtnerThomas2019:locality - improved results for insulators
+- @Thomas2020:scTB - self-consistent tight-binding models
+- @ThomasChenOrtner2022:body-order - body-ordered approximations
+- @Xie2020 - “XPS”

@@ -1,0 +1,429 @@
+---
+title: "Events"
+subtitle: "Talks, posters, seminars and conferences"
+---
+
+```{=html}
+<div class="event-filter" role="group" aria-label="Filter events">
+  <button class="active" data-filter="all">All</button>
+  <button data-filter="talk">Talks / Posters</button>
+  <button data-filter="seminar">Seminars</button>
+  <button data-filter="conference">Conferences</button>
+</div>
+```
+
+::::: {.year-group}
+[2026]{.year-label}
+
+:::: {.event .talk .conference}
+[Jun]{.ev-month}
+
+::: {.ev-body}
+[Mathematical Aspects of 2D Quantum Materials and Meta-materials]{.ev-title}\
+[IMSI, Chicago]{.ev-where}
+
+[Poster]{.ev-badge .poster} [Mathematical derivation of effective Hamiltonians: Analysis of a 1d toy model]{.ev-what}
+
+:::
+::::
+
+:::: {.event .conference}
+[May]{.ev-month}
+
+::: {.ev-body}
+[Moiré Materials: Theory, Experiment, and Mathematics]{.ev-title}\
+[Flatiron Institute, New York]{.ev-where}
+
+[Attended]{.ev-badge .attended}
+
+:::
+::::
+
+:::::
+
+::::: {.year-group}
+[2025]{.year-label}
+
+:::: {.event .talk .seminar}
+[Dec]{.ev-month}
+
+::: {.ev-body}
+[PDE Seminar]{.ev-title}\
+[University of Minnesota]{.ev-where}
+
+[Seminar]{.ev-badge .seminar} [Locality of Interatomic Interactions]{.ev-what} [Notes&nbsp;→](notes/posts/locality-interatomic/index.qmd#umn-2025){.ev-notes}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[May]{.ev-month}
+
+::: {.ev-body}
+[[Moiré Materials Magic Workshop](https://events.simonsfoundation.org/event/6393d09c-6300-4c52-9655-272d0c05c96d/summary?RefId=Summary)]{.ev-title}\
+[Flatiron Institute, New York]{.ev-where}
+
+[Poster]{.ev-badge .poster} [Friedel Oscillations]{.ev-what} [Notes&nbsp;→](notes/posts/friedel-oscillations/index.qmd){.ev-notes}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[Feb]{.ev-month}
+
+::: {.ev-body}
+[[Mathematical Challenges in Quantum Mechanics: School and Workshop](https://indico.gssi.it/event/696/)]{.ev-title}\
+[Gran Sasso Science Institute, L'Aquila, Italy]{.ev-where}
+
+[Talk]{.ev-badge .talk} [Screening in the reduced Hartree-Fock model]{.ev-what} [Notes&nbsp;→](notes/posts/screening-rhf/index.qmd#laquila-2025){.ev-notes}
+
+:::
+::::
+
+:::::
+
+::::: {.year-group}
+[2024]{.year-label}
+
+:::: {.event .talk .conference}
+[Dec]{.ev-month}
+
+::: {.ev-body}
+[[Mathematical Physics and PDEs](https://www.math.lmu.de/~nam/MPDE2024.html)]{.ev-title}\
+[Herrsching]{.ev-where}
+
+[Talk]{.ev-badge .talk} [Screening in the reduced Hartree-Fock model]{.ev-what} [Notes&nbsp;→](notes/posts/screening-rhf/index.qmd#herrsching-2024){.ev-notes}
+
+[Poster]{.ev-badge .poster} [Friedel Oscillations in the reduced Hartree-Fock model]{.ev-what} [Notes&nbsp;→](notes/posts/friedel-oscillations/index.qmd){.ev-notes}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[Jan]{.ev-month}
+
+::: {.ev-body}
+[[Workshop on Model Systems in Quantum Mechanics](https://lcpq.github.io/MSQM/)]{.ev-title}\
+[Toulouse]{.ev-where}
+
+[Poster]{.ev-badge .poster} [Friedel Oscillations]{.ev-what} [Notes&nbsp;→](notes/posts/friedel-oscillations/index.qmd){.ev-notes}
+
+:::
+::::
+
+:::::
+
+::::: {.year-group}
+[2023]{.year-label}
+
+:::: {.event .talk .seminar .conference}
+[Oct]{.ev-month}
+
+::: {.ev-body}
+[Journée de rentrée de l'équipe ([programme](notes/posts/body-ordered/programme-ihes-2023.pdf))]{.ev-title}\
+[[IHES](https://www.ihes.fr/en/)]{.ev-where}
+
+[Talk]{.ev-badge .talk} [Body-ordered Approximations of Atomic Properties]{.ev-what} [Notes&nbsp;→](notes/posts/body-ordered/index.qmd#ihes-2023){.ev-notes}
+
+:::
+::::
+
+:::: {.event .talk .seminar}
+[Jun]{.ev-month}
+
+::: {.ev-body}
+[[Problèmes Spectraux en Physique Mathématique](https://www.imo.universite-paris-saclay.fr/~stephane.nonnenmacher/tournant/seminairetournant.html)]{.ev-title}\
+[Institut Henri Poincaré]{.ev-where}
+
+[Seminar]{.ev-badge .seminar} [Locality of interatomic interactions]{.ev-what} [Notes&nbsp;→](notes/posts/locality-interatomic/index.qmd#ihp-2023){.ev-notes}
+
+:::
+::::
+
+:::: {.event .talk .seminar}
+[Mar]{.ev-month}
+
+::: {.ev-body}
+[Mathématiques et chimie ([EMC2](https://erc-emc2.eu/emc2-seminars/))]{.ev-title}\
+[[Laboratoire Jacques-Louis Lions](https://www.ljll.math.upmc.fr)]{.ev-where}
+
+[Seminar]{.ev-badge .seminar} [Body-ordered approximations of atomic properties]{.ev-what}
+
+:::
+::::
+
+:::::
+
+::::: {.year-group}
+[2022]{.year-label}
+
+:::: {.event .talk .conference}
+[Aug]{.ev-month}
+
+::: {.ev-body}
+[[Computational Methods in Applied Mathematics (CMAM)](https://www.asc.tuwien.ac.at/cmam2022/?id=home)]{.ev-title}\
+[TU Wien]{.ev-where}
+
+[Invited talk]{.ev-badge .talk} [Body-ordered approximations of atomic properties <span class='ev-context'>(MS21: Multiscale methods for materials and molecules)</span>]{.ev-what}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[May]{.ev-month}
+
+::: {.ev-body}
+[[Advancing Quantum Mechanics with Mathematics and Statistics](http://www.ipam.ucla.edu/programs/long-programs/advancing-quantum-mechanics-with-mathematics-and-statistics/?tab=seminar-series)]{.ev-title}\
+[[IPAM, UCLA](http://www.ipam.ucla.edu)]{.ev-where}
+
+[Invited talk]{.ev-badge .talk} [Physics-Informed Models <span class='ev-context'>(Machine Learning Potentials mini-workshop)</span>]{.ev-what}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[Apr]{.ev-month}
+
+::: {.ev-body}
+[[Advances in N-body Computations](https://www.pranavsingh.co.uk/anc22)]{.ev-title}\
+[University of Oxford]{.ev-where}
+
+[Invited talk]{.ev-badge .talk} [Body-ordered Approximations of Atomic Properties]{.ev-what}
+
+:::
+::::
+
+:::: {.event .talk .seminar}
+[Apr]{.ev-month}
+
+::: {.ev-body}
+[Seminar]{.ev-title}\
+[University of Cambridge]{.ev-where}
+
+[Seminar]{.ev-badge .seminar} [Self-consistent Coulomb Interactions for Machine Learning Interatomic Potentials]{.ev-what}
+
+:::
+::::
+
+:::::
+
+::::: {.year-group}
+[2021]{.year-label}
+
+:::: {.event .conference}
+[Sep]{.ev-month}
+
+::: {.ev-body}
+[[Autumn School on Correlated Electrons: Simulating Correlations with Computers](https://www.cond-mat.de/events/correl21/index.html)]{.ev-title}
+
+[Attended]{.ev-badge .attended}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[Jul]{.ev-month}
+
+::: {.ev-body}
+[[16th U.S. National Congress on Computational Mechanics](http://16.usnccm.org/)]{.ev-title}
+
+[Contributed talk]{.ev-badge .talk} [Sparsity of the Tight Binding Potential Energy Landscape <span class='ev-context'>(Materials Modelling Across Scales: From First Principles Calculations to Mesoscale Physics)</span>]{.ev-what}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[Apr]{.ev-month}
+
+::: {.ev-body}
+[[British Applied Mathematics Colloquium (BAMC)](https://sites.google.com/site/bmcbamc2020/)]{.ev-title}\
+[University of Glasgow]{.ev-where}
+
+[Contributed talk]{.ev-badge .talk} [Tight Binding Models for Insulators: Locality of interatomic forces & geometry optimisation]{.ev-what}
+
+:::
+::::
+
+:::: {.event .talk .seminar}
+[Mar]{.ev-month}
+
+::: {.ev-body}
+[[Statistics, Probability, Analysis and Applied Mathematics (SPAAM)](https://warwick.ac.uk/fac/sci/maths/research/events/seminars/areas/spaam/2020-21/) student seminar]{.ev-title}\
+[University of Warwick]{.ev-where}
+
+[Seminar]{.ev-badge .seminar} [Polynomial Interpolation: An interactive introduction]{.ev-what}
+
+:::
+::::
+
+:::::
+
+::::: {.year-group}
+[2020]{.year-label}
+
+:::: {.event .talk .conference}
+[Jul]{.ev-month}
+
+::: {.ev-body}
+[[HetSys Online Conference](https://warwick.ac.uk/fac/sci/hetsys/events/ab101/)]{.ev-title}\
+[Online]{.ev-where}
+
+[Poster]{.ev-badge .poster} [Locality of Interatomic Interactions in Tight Binding Models for Insulators]{.ev-what} [Notes&nbsp;→](notes/posts/locality-poster/index.qmd){.ev-notes}
+
+:::
+::::
+
+:::: {.event .conference}
+[Jul]{.ev-month}
+
+::: {.ev-body}
+[[Joint SIAM/CAIMS Annual Meeting](https://www.siam.org/conferences/cm/conference/an20)]{.ev-title}\
+[Online ([YouTube](https://www.youtube.com/playlist?list=PLcntFj46o5pEaJsjOyE8U9e3too42PZd9))]{.ev-where}
+
+[Attended]{.ev-badge .attended}
+
+:::
+::::
+
+:::: {.event .conference}
+[Jun]{.ev-month}
+
+::: {.ev-body}
+[[SIAM-IMA Student Chapter Conference](https://sites.google.com/view/siam-ima-reading-chapter/home?authuser=0)]{.ev-title}\
+[University of Reading (online)]{.ev-where}
+
+[Attended]{.ev-badge .attended}
+
+:::
+::::
+
+:::::
+
+::::: {.year-group}
+[2019]{.year-label}
+
+:::: {.event .conference}
+[Sep]{.ev-month}
+
+::: {.ev-body}
+[[Materials Modelling at Coventry and Warwick](https://warwick.ac.uk/fac/sci/wcpm/seminars/mmacaw_1/)]{.ev-title}\
+[University of Warwick]{.ev-where}
+
+[Attended]{.ev-badge .attended}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[Jun]{.ev-month}
+
+::: {.ev-body}
+[[Mathematical and Numerical Analysis of Electronic Structure Models](http://lsec.cc.ac.cn/~mnaesm19/)]{.ev-title}\
+[Suzhou, China]{.ev-where}
+
+[Contributed talk]{.ev-badge .talk} [Relaxation of a Crystalline Defect in the Tight Binding Model]{.ev-what}
+
+:::
+::::
+
+:::: {.event }
+[Jun]{.ev-month}
+
+::: {.ev-body}
+[Research visit to [Huajie Chen](http://math0.bnu.edu.cn/~chenhuajie/)]{.ev-title}\
+[Beijing Normal University, China]{.ev-where}
+
+[Visit]{.ev-badge .attended}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[May]{.ev-month}
+
+::: {.ev-body}
+[MASDOC CDT Summer Retreat]{.ev-title}\
+[Borth, Wales]{.ev-where}
+
+[Contributed talk]{.ev-badge .talk} [Relaxation of a Crystalline Defect in the Tight Binding Model]{.ev-what}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[Apr]{.ev-month}
+
+::: {.ev-body}
+[[British Applied Mathematics Colloquium](https://www.bath.ac.uk/events/british-applied-mathematics-colloquium-2019/)]{.ev-title}\
+[University of Bath]{.ev-where}
+
+[Contributed talk]{.ev-badge .talk} [Zero Temperature Limit of the Tight Binding Model for Point Defects]{.ev-what}
+
+:::
+::::
+
+:::: {.event .talk .conference}
+[Apr]{.ev-month}
+
+::: {.ev-body}
+[[Interplay of Probability, Statistics and Analysis: UK Joint CDT Colloquium](https://warwick.ac.uk/fac/sci/masdoc/people/studentpages/students2015/johnston/ipsa)]{.ev-title}\
+[University of Warwick]{.ev-where}
+
+[Contributed talk]{.ev-badge .talk} [Zero Temperature Limit of the Tight Binding Model for Point Defects]{.ev-what}
+
+:::
+::::
+
+:::: {.event .talk .seminar}
+[Mar]{.ev-month}
+
+::: {.ev-body}
+[Solid Mechanics Working Group Meeting]{.ev-title}\
+[University of Warwick]{.ev-where}
+
+[Seminar]{.ev-badge .seminar} [Zero Temperature Limit of the Tight Binding Model for Point Defects]{.ev-what}
+
+:::
+::::
+
+:::::
+
+::::: {.year-group}
+[2018]{.year-label}
+
+:::: {.event }
+[Jul]{.ev-month}
+
+::: {.ev-body}
+[[ISCD Summer School on Scientific Trends at the Interfaces: Mathematics -- Chemistry -- High Performance Computing](http://iscd.sorbonne-universite.fr/academics/schools/)]{.ev-title}\
+[Roscoff, France (July -- August)]{.ev-where}
+
+[Summer school]{.ev-badge .attended}
+
+:::
+::::
+
+:::::
+
+```{=html}
+<script>
+// Events filter (hides a year heading when none of its events match)
+document.querySelectorAll(".event-filter button").forEach(function (btn) {
+  btn.addEventListener("click", function () {
+    var f = btn.dataset.filter;
+    document.querySelectorAll(".event-filter button").forEach(function (b) {
+      b.classList.toggle("active", b === btn);
+    });
+    document.querySelectorAll(".event").forEach(function (ev) {
+      ev.style.display = (f === "all" || ev.classList.contains(f)) ? "" : "none";
+    });
+    document.querySelectorAll(".year-group").forEach(function (g) {
+      var any = Array.prototype.some.call(g.querySelectorAll(".event"), function (ev) {
+        return ev.style.display !== "none";
+      });
+      g.style.display = any ? "" : "none";
+    });
+  });
+});
+</script>
+```

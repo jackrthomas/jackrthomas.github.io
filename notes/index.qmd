@@ -1,0 +1,79 @@
+---
+title: "Notes"
+subtitle: "Talks, group meetings and notes"
+title-block-banner: true
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  image-placeholder: ../images/pi.png
+  categories: true
+  sort-ui: false
+  filter-ui: false
+  feed: true
+page-layout: full
+---
+
+```{=html}
+<script>
+// runs after load: the listing markup comes after this script in the page
+window.addEventListener("load", function () {
+  // Posts whose date is only known to the month (dated the 1st): show "Jun 2023"
+  // in the listing instead of "Jun 1, 2023". Their own pages use date-format.
+  var MONTH_ONLY = ["friedel-oscillations", "screening-rhf", "locality-interatomic",
+                    "body-ordered", "locality-poster", "phd-thesis", "msc-thesis"];
+  document.querySelectorAll(".quarto-post").forEach(function (post) {
+    var a = post.querySelector("a[href]");
+    var slug = a && (a.getAttribute("href").match(/posts\/([^/]+)\//) || [])[1];
+    if (MONTH_ONLY.indexOf(slug) === -1) return;
+    var d = post.querySelector(".listing-date");
+    if (d) d.textContent = d.textContent.trim().replace(/\s\d{1,2},/, "");
+  });
+
+  // Year timeline in the right-hand sidebar: click a year to show only its notes
+  function yearOf(el) {
+    return new Date(Number(el.getAttribute("data-listing-date-sort"))).getUTCFullYear();
+  }
+  var posts = Array.prototype.slice.call(document.querySelectorAll(".quarto-post"));
+  var counts = {};
+  posts.forEach(function (p) { var y = yearOf(p); counts[y] = (counts[y] || 0) + 1; });
+  var years = Object.keys(counts).sort(function (a, b) { return b - a; });
+  var sidebar = document.getElementById("quarto-margin-sidebar");
+  if (!sidebar || !years.length) return;
+
+  var box = document.createElement("div");
+  box.className = "notes-years";
+  box.innerHTML = '<h5 class="quarto-listing-category-title">Years</h5>' +
+    '<ul class="notes-years-list"><li class="active" data-year="all">All <span>(' + posts.length + ')</span></li>' +
+    years.map(function (y) { return '<li data-year="' + y + '">' + y + ' <span>(' + counts[y] + ')</span></li>'; }).join("") +
+    "</ul>";
+  sidebar.appendChild(box);
+
+  function lists() {
+    var L = window["quarto-listings"] || {};
+    return Object.keys(L).map(function (k) { return L[k]; });
+  }
+  function setActiveYear(y) {
+    box.querySelectorAll("li").forEach(function (li) { li.classList.toggle("active", li.dataset.year === y); });
+  }
+  box.querySelectorAll("li").forEach(function (li) {
+    li.addEventListener("click", function () {
+      var y = li.dataset.year;
+      setActiveYear(y);
+      // reset the category filter so the two don't combine confusingly
+      document.querySelectorAll(".quarto-listing-category .category.active").forEach(function (c) { c.classList.remove("active"); });
+      var all = document.querySelector(".quarto-listing-category .category[data-category='']");
+      if (all) all.classList.add("active");
+      lists().forEach(function (list) {
+        if (y === "all") list.filter();
+        else list.filter(function (item) { return String(yearOf(item.elm)) === y; });
+      });
+    });
+  });
+  // picking a category resets the year selection
+  document.querySelectorAll(".quarto-listing-category .category").forEach(function (c) {
+    c.addEventListener("click", function () { setActiveYear("all"); });
+  });
+});
+</script>
+```

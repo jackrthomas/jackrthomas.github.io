@@ -1,0 +1,28 @@
+---
+title: "Analysis of an ab initio Potential Energy Landscape"
+subtitle: "PhD thesis, University of Warwick"
+date: 2021-09-01
+date-format: "MMMM YYYY"   # month-only date: hide the day
+categories: [Thesis]
+description: "PhD thesis (Mathematics Institute, University of Warwick), supervised by Christoph Ortner. Faculty Thesis Prize 2022 (joint winner)."
+image: thumb.png
+---
+
+- PhD in Mathematics and Statistics, Mathematics Institute, University of Warwick (September 2021)
+- Supervised by Christoph Ortner
+- Faculty Thesis Prize 2022 (joint winner)
+- Permanent record: [WRAP](http://wrap.warwick.ac.uk/167402/)
+
+::: {.callout-note collapse="true"}
+## Abstract
+
+A wide range of electronic, optical and magnetic properties of solids are determined by electronic structure. Computational methods, such as density functional theory, have been used successfully to model electronic structure and thus allowed the investigation and prediction of properties of materials. However, even now, the high computational cost of these *ab initio* methods severely limits their applicability in material modelling to thousands of atoms for static and hundreds of atoms for long-time dynamic simulations.
+
+In modelling tasks involving only the mechanics of the atoms, one may bypass the electronic structure model entirely and replace it with a surrogate interatomic potential (IP), a functional form that may be fitted to theoretical data from a high fidelity *ab initio* model. The aim of this thesis is to provide a rigorous basis for IP models by justifying some of the underlying assumptions, in particular with an eye towards physics-informed machine learning approaches.
+
+More specifically, we consider the tight binding model, a quantum mechanical model sharing many similarities with the more complex Kohn-Sham density functional theories, and prove that the potential energy landscape (PEL) can be decomposed into atom-centred site energy contributions depending only on atoms within a small cut-off radius of the central atom. Moreover, we obtain error estimates for body-ordered approximations, which allows one to reduce the dimensionality of the site energy contributions. In particular, we are able to decompose the PEL into low dimensional components which are easier to analyse, manipulate, and fit.
+:::
+
+<iframe class="pdf-embed poster" src="thesis.pdf#navpanes=0&pagemode=none&view=FitH"></iframe>
+
+[\[open fullscreen\]](thesis.pdf)

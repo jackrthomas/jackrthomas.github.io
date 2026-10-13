@@ -1,0 +1,25 @@
+---
+title: "Locality of Interatomic Interactions in Tight Binding Models for Insulators"
+subtitle: "Poster: locality of interatomic forces in tight binding models"
+date: 2020-07-01
+date-format: "MMMM YYYY"   # month-only date: hide the day
+categories: [Poster, Conference]
+description: "Exponentially localised site-energy decompositions for tight binding models of insulators (joint work with Christoph Ortner and Huajie Chen)."
+image: thumb.png
+---
+
+Presented at:
+
+- July 2020 -- [HetSys Online Conference](https://warwick.ac.uk/fac/sci/hetsys/events/ab101/) (virtual poster)
+
+Based on @ChenOrtnerThomas2019:locality.
+
+::: {.callout-note collapse="true"}
+## Abstract
+
+The tight binding model is a minimalistic electronic structure model for predicting properties of materials and molecules. For insulators at zero Fermi-temperature we show that the potential energy surface of this model can be decomposed into exponentially localised site energy contributions, thus providing qualitatively sharp estimates on the interatomic interaction range which justifies a range of multi-scale models. For insulators at finite Fermi-temperature we obtain locality estimates that are uniform in the zero-temperature limit. A particular feature of all our results is that they depend only weakly on the point spectrum. Numerical tests confirm our analytical results. This work extends and strengthens @ChenOrtner16 and @ChenLuOrtner18 for finite temperature models.
+:::
+
+<iframe class="pdf-embed poster" src="poster.pdf#navpanes=0&pagemode=none&view=FitH"></iframe>
+
+[\[open fullscreen\]](poster.pdf)

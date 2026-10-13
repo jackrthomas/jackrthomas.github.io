@@ -1,0 +1,11 @@
+# Options shared by every post in Notes/posts/
+title-block-banner: true
+toc: true
+author: "Jack Thomas"
+execute:
+  # Store computed output (e.g. Julia cells) so the site can be rebuilt
+  # without re-running code; re-run a post with `quarto render <file>`.
+  freeze: auto
+# Shared bibliography: cite with @key (in text) or [@key] (parenthetical)
+bibliography: ../references.bib
+link-citations: true

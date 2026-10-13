@@ -1,0 +1,364 @@
+---
+title: "Jack Thomas"
+pagetitle: "Jack Thomas"
+subtitle: "Postdoctoral Researcher"
+image: images/jt4-square.png
+page-layout: full
+title-block-banner: true
+---
+
+::::: {.home-wrap}
+
+::: {.hidden}
+$\,$
+:::
+
+:::: {.home-intro}
+
+```{=html}
+<div class="home-photo">
+  <img src="images/jt4-square.png" alt="Jack Thomas" class="profile-photo">
+  <div class="home-links">
+    <a href="mailto:thom9218@umn.edu"><i class="bi bi-envelope"></i> thom9218@umn.edu</a>
+    <span><i class="bi bi-geo-alt"></i> 331 Vincent Hall</span>
+    <a href="https://arxiv.org/a/thomas_j_2.html">arXiv</a>
+    <a href="https://orcid.org/0000-0001-8800-3406">ORCID</a>
+    <a href="https://scholar.google.com/citations?user=_ak5xoUAAAAJ&amp;hl=en"><i class="bi bi-mortarboard"></i> Google Scholar</a>
+  </div>
+</div>
+```
+
+::: {.home-text}
+::: {.affiliation}
+**Postdoctoral Researcher**\
+School of Mathematics\
+University of Minnesota Twin Cities\
+Supervisor: [Prof. Mitchell Luskin](https://www-users.cse.umn.edu/~luskin/)
+:::
+
+*Previous:* [Prof. Antoine Levitt](http://antoine.levitt.fr/) (Postdoc Supervisor),
+[Prof. Christoph Ortner](https://personal.math.ubc.ca/~ortner/) (PhD Supervisor)
+
+**Research interests:** Mathematical analysis of electronic structure models in materials science and quantum chemistry
+:::
+
+::::
+
+::: {.panel-tabset .home-toggle}
+
+## Papers
+
+```{=html}
+<div class="cv-group">
+<p><span class="cv-label">Preprints</span></p>
+<ol class="pubs">
+  <li data-n="8" class="cv-item">
+    <div class="cv-dates"><span class="pub-num">[8]</span><br>2025</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Nearsightedness in materials with indirect band gaps</span><br><span class="ev-where">Huajie Chen, Juerong Feng, Christoph Ortner, and Jack Thomas</span><br><em class="pub-venue">arXiv e-prints 2501.01188</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="https://arxiv.org/abs/2501.01188">arXiv</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">We investigate the nearsightedness property in the linear tight binding model at zero Fermi-temperature. We focus on the decay property of the density matrix for materials with indirect band gaps. By representing the density matrix in reciprocal space, we establish a qualitatively sharp estimate for the exponential decay rate in homogeneous systems. An extending result under perturbations is also derived. This work refines the estimates presented in (Ortner, Thomas &amp; Chen 2020), particularly for systems with small band gaps.</blockquote>
+    </div>
+  </li>
+</ol>
+</div>
+<div class="cv-group">
+<p><span class="cv-label">Peer-reviewed articles</span></p>
+<ol class="pubs">
+  <li data-n="7" class="cv-item">
+    <div class="cv-dates"><span class="pub-num">[7]</span><br>2026</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Decay of interatomic force constants in the reduced Hartree-Fock model</span><br><span class="ev-where">Éric Cancès, Antoine Levitt, and Jack Thomas</span><br><em class="pub-venue">Multiscale Modeling &amp; Simulation, to appear (2026)</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="https://arxiv.org/abs/2506.09595">arXiv</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">We study the decay of the interatomic force constants (equivalently, the smoothness properties of the dynamical matrix) in perfect crystals both at finite electronic temperature, and for insulators at zero temperature, within the reduced Hartree-Fock approximation (also called Random Phase Approximation). At finite temperature the electrons are mobile, leading to exponential decay of the force constants. In insulators, there is incomplete screening, leading to an algebraic decay of dipole-dipole interaction type.</blockquote>
+    </div>
+  </li>
+  <li data-n="6" class="cv-item">
+    <div class="cv-dates"><span class="pub-num">[6]</span><br>2025</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Self-consistent Coulomb interactions for machine learning interatomic potentials</span><br><span class="ev-where">Jack Thomas, William J. Baldwin, Gábor Csányi, and Christoph Ortner</span><br><em class="pub-venue">Nonlinearity, 38: 095024 (2025)</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="https://iopscience.iop.org/article/10.1088/1361-6544/ae0402">doi</a> <a class="ev-badge pub-link" href="https://arxiv.org/abs/2406.10915">arXiv</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">A ubiquitous approach to obtain transferable machine learning-based models of potential energy surfaces for atomistic systems is to decompose the total energy into a sum of local atom-centred contributions. However, in many systems non-negligible long-range electrostatic effects must be taken into account as well. We introduce a general mathematical framework to study how such long-range effects can be included in a way that (i) allows charge equilibration and (ii) retains the locality of the learnable atom-centred contributions to ensure transferability. Our results give partial explanations for the success of existing machine learned potentials that include equilibriation and provide perspectives how to design such schemes in a systematic way. To complement the rigorous theoretical results, we describe a practical scheme for fitting the energy and electron density of water clusters.</blockquote>
+    </div>
+  </li>
+  <li data-n="5" class="cv-item">
+    <div class="cv-dates"><span class="pub-num">[5]</span><br>2024</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Polynomial approximation of symmetric functions</span><br><span class="ev-where">Markus Bachmayr, Geneviève Dusson, Christoph Ortner, and Jack Thomas</span><br><em class="pub-venue">Mathematics of Computation, 93(346): 811-839 (2024)</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="https://doi.org/10.1090/mcom/3868">doi</a> <a class="ev-badge pub-link" href="https://arxiv.org/abs/2109.14771">arXiv</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">We study the polynomial approximation of symmetric multivariate functions and of multi-set functions. Specifically, we consider \(f(x_1,\dots,x_N)\), where \(x_i \in \mathbb R^d\), and \(f\) is invariant under permutations of its \(N\) arguments. We demonstrate how these symmetries can be exploited to improve the cost versus error ratio in a polynomial approximation of the function \(f\), and in particular study the dependence of that ratio on \(d,N\) and the polynomial degree. These results are then exploited to construct approximations and prove approximation rates for functions defined on multi-sets where \(N\) becomes a parameter of the input.</blockquote>
+    </div>
+  </li>
+  <li data-n="4" class="cv-item">
+    <div class="cv-dates"><span class="pub-num">[4]</span><br>2022</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Body-ordered approximations of atomic properties</span><br><span class="ev-where">Jack Thomas, Huajie Chen, and Christoph Ortner</span><br><em class="pub-venue">Archive for Rational Mechanics and Analysis, 246(1): 1-60 (2022)</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="https://rdcu.be/cTaAB">doi</a> <a class="ev-badge pub-link" href="https://arxiv.org/abs/2106.12572">arXiv</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">We show that the local density of states (LDOS) of a wide class of tight-binding models has a weak body-order expansion. Specifically, we prove that the resulting body-order expansion for analytic observables such as the electron density or the energy has an exponential rate of convergence both at finite Fermi-temperature as well as for insulators at zero Fermi-temperature. We discuss potential consequences of this observation for modelling the potential energy landscape, as well as for solving the electronic structure problem.</blockquote>
+    </div>
+  </li>
+  <li data-n="3" class="cv-item">
+    <div class="cv-dates"><span class="pub-num">[3]</span><br>2020</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Locality of interatomic interactions in self-consistent tight binding models</span><br><span class="ev-where">Jack Thomas</span><br><em class="pub-venue">Journal of Nonlinear Science, 30(6): 3293-3319 (2020)</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="https://rdcu.be/b6Oc9">doi</a> <a class="ev-badge pub-link" href="https://arxiv.org/abs/2004.09323">arXiv</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">A key starting assumption in many classical interatomic potential models for materials is a site energy decomposition of the potential energy surface into contributions that only depend on a small neighbourhood. Under a natural stability condition, we construct such a spatial decomposition for self-consistent tight binding models, extending recent results for linear tight binding models to the nonlinear setting.</blockquote>
+    </div>
+  </li>
+  <li data-n="2" class="cv-item">
+    <div class="cv-dates"><span class="pub-num">[2]</span><br>2020</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Point defects in tight binding models for insulators</span><br><span class="ev-where">Christoph Ortner and Jack Thomas</span><br><em class="pub-venue">Mathematical Models and Methods in Applied Sciences, 30(14): 2753-2797 (2020)</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="https://dx.doi.org/10.1142/S0218202520500542">doi</a> <a class="ev-badge pub-link" href="https://arxiv.org/abs/2004.05356">arXiv</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">We consider atomistic geometry relaxation in the context of linear tight binding models for point defects. A limiting model as Fermi-temperature is sent to zero is formulated, and an exponential rate of convergence for the nuclei configuration is established. We also formulate the thermodynamic limit model at zero Fermi-temperature, extending the results of [H. Chen, J. Lu and C. Ortner, Thermodynamic limit of crystal defects with finite temperature tight binding, Arch. Ration. Mech. Anal. 230 (2018) 701–733]. We discuss the non-trivial relationship between taking zero temperature and thermodynamic limits in the finite Fermi-temperature models.</blockquote>
+    </div>
+  </li>
+  <li data-n="1" class="cv-item">
+    <div class="cv-dates"><span class="pub-num">[1]</span><br>2020</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Locality of interatomic forces in tight binding models for insulators</span><br><span class="ev-where">Christoph Ortner, Jack Thomas, and Huajie Chen</span><br><em class="pub-venue">ESAIM: Mathematical Modelling and Numerical Analysis, 54(6): 2295-2318 (2020)</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="https://doi.org/10.1051/m2an/2020020">doi</a> <a class="ev-badge pub-link" href="https://arxiv.org/abs/1906.11740">arXiv</a> <a class="ev-badge pub-link" href="notes/posts/locality-poster/index.html">poster</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">The tight binding model is a minimalistic electronic structure model for predicting properties of materials and molecules. For insulators at zero Fermi-temperature we show that the potential energy surface of this model can be decomposed into exponentially localised site energy contributions, thus providing qualitatively sharp estimates on the interatomic interaction range which justifies a range of multi-scale models. For insulators at finite Fermi-temperature we obtain locality estimates that are uniform in the zero-temperature limit. A particular feature of all our results is that they depend only weakly on the point spectrum. Numerical tests confirm our analytical results. This work extends and strengthens <a href="https://doi.org/10.1137/15M1022628" title="QM/MM Methods for Crystalline Defects. Part 1: Locality of the Tight Binding Model">(Chen, Ortner 2016)</a> and <a href="https://doi.org/10.1007/s00205-018-1256-y" title="Thermodynamic Limit of Crystal Defects with Finite Temperature Tight Binding">(Chen, Lu, Ortner 2018)</a> for finite temperature models.</blockquote>
+    </div>
+  </li>
+</ol>
+</div>
+<div class="cv-group">
+<p><span class="cv-label">Theses</span></p>
+<ol class="pubs">
+  <li class="cv-item">
+    <div class="cv-dates"><span class="pub-num">PhD</span><br>2021</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Analysis of an <em>ab initio</em> Potential Energy Landscape</span><br><span class="ev-where">Supervised by Christoph Ortner</span><br><em class="pub-venue">PhD thesis, University of Warwick (2021). Faculty Thesis Prize 2022 (joint winner)</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="http://wrap.warwick.ac.uk/167402/">wrap</a> <a class="ev-badge pub-link" href="notes/posts/phd-thesis/index.html">notes</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">A wide range of electronic, optical and magnetic properties of solids are determined by electronic structure. Computational methods, such as density functional theory, have been used successfully to model electronic structure and thus allowed the investigation and prediction of properties of materials. However, even now, the high computational cost of these <em>ab initio</em> methods severely limits their applicability in material modelling to thousands of atoms for static and hundreds of atoms for long-time dynamic simulations. In modelling tasks involving only the mechanics of the atoms, one may bypass the electronic structure model entirely and replace it with a surrogate interatomic potential (IP), a functional form that may be fitted to theoretical data from a high fidelity <em>ab initio</em> model. The aim of this thesis is to provide a rigorous basis for IP models by justifying some of the underlying assumptions, in particular with an eye towards physics-informed machine learning approaches. More specifically, we consider the tight binding model, a quantum mechanical model sharing many similarities with the more complex Kohn-Sham density functional theories, and prove that the potential energy landscape (PEL) can be decomposed into atom-centred site energy contributions depending only on atoms within a small cut-off radius of the central atom. Moreover, we obtain error estimates for body-ordered approximations, which allows one to reduce the dimensionality of the site energy contributions. In particular, we are able to decompose the PEL into low dimensional components which are easier to analyse, manipulate, and fit.</blockquote>
+    </div>
+  </li>
+  <li class="cv-item">
+    <div class="cv-dates"><span class="pub-num">MSc</span><br>2018</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Analysis of the Tight Binding Model</span><br><span class="ev-where">Supervised by Christoph Ortner</span><br><em class="pub-venue">MSc thesis (Summer Research Project), University of Warwick (2018)</em></p>
+      <p class="pub-actions"><a class="ev-badge pub-link" href="notes/posts/msc-thesis/index.html">notes</a> <span class="abs-part"><a class="ev-badge pub-link abs-toggle" role="button" tabindex="0">abstract</a></span></p>
+      <blockquote class="abstract">We apply the super-cell method to define Fermi levels on finite sub-lattices within the framework of the canonical ensemble and tight binding model. These Fermi levels of course depend on the size of the sub-lattice and the model, but also on temperature via the Fermi-Dirac distribution. We show that the zero temperature and thermodynamic limits of the Fermi levels exist and commute. We then perturb the system by considering more general configurations of the lattice and find that, in the case of metals, the aforementioned results still hold. In the more complex case of insulators, we note that the results break down due to the introduction of new eigenstates within the band gap.</blockquote>
+    </div>
+  </li>
+  <li class="cv-item">
+    <div class="cv-dates"><span class="pub-num">MMath</span><br>2017</div>
+    <div class="ev-body">
+      <p><span class="ev-title">Incompatibility of Gradients</span><br><span class="ev-where">Supervised by Filip Rindler</span><br><em class="pub-venue">MMath thesis, University of Warwick (2017)</em></p>
+    </div>
+  </li>
+</ol>
+</div>
+```
+
+::: {.pub-links}
+[arXiv](https://arxiv.org/a/thomas_j_2.html) |
+[bib](bib.bib) |
+[orcid.org](https://orcid.org/0000-0001-8800-3406) |
+[google scholar](https://scholar.google.com/citations?user=_ak5xoUAAAAJ&hl=en)
+:::
+
+[Co-authors:]{.coauthors-label}
+[Markus Bachmayr](https://www.igpm.rwth-aachen.de/team/bachmayr) |
+[William J. Baldwin](https://www.eng.cam.ac.uk/profiles/wjb48) |
+[Éric Cancès](https://cermics.enpc.fr/~cances/) |
+[Huajie Chen](http://math0.bnu.edu.cn/~chenhuajie/) |
+[Gábor Csányi](https://www.eng.cam.ac.uk/profiles/gc121) |
+[Geneviève Dusson](https://gdusson.perso.math.cnrs.fr/) |
+Juerong Feng |
+[Antoine Levitt](https://www.imo.universite-paris-saclay.fr/~antoine.levitt/) |
+[Christoph Ortner](https://personal.math.ubc.ca/~ortner/)
+
+## About
+
+::::: {.cv-group}
+[Research experience]{.cv-label}
+
+:::: {.cv-item}
+::: {.cv-dates}
+Aug 2025\
+Present
+:::
+
+::: {.ev-body}
+[Postdoctoral Associate]{.ev-title}\
+[School of Mathematics, University of Minnesota Twin Cities]{.ev-where}
+
+[Supervisor]{.ev-badge .person} Mitchell Luskin
+
+:::
+::::
+
+:::: {.cv-item}
+::: {.cv-dates}
+Dec 2022\
+Jun 2025
+:::
+
+::: {.ev-body}
+[Postdoctoral Researcher]{.ev-title}\
+[Laboratoire de Mathématiques d'Orsay, Université Paris-Saclay]{.ev-where}
+
+[Supervisor]{.ev-badge .person} Antoine Levitt
+
+:::
+::::
+
+:::: {.cv-item}
+::: {.cv-dates}
+Oct 2021\
+Sept 2022
+:::
+
+::: {.ev-body}
+[Research Fellow]{.ev-title}\
+[Mathematics Institute, University of Warwick]{.ev-where}
+
+[Supervisor]{.ev-badge .person} Christoph Ortner
+
+[Funding]{.ev-badge .funding} EPSRC Mathematical Sciences Research Associate scheme
+
+:::
+::::
+:::::
+
+::::: {.cv-group}
+[Education]{.cv-label}
+
+:::: {.cv-item}
+::: {.cv-dates}
+Sept 2018\
+Sept 2021
+:::
+
+::: {.ev-body}
+[PhD in Mathematics and Statistics]{.ev-title}\
+[University of Warwick]{.ev-where}
+
+[Supervisor]{.ev-badge .person} Christoph Ortner
+
+[Thesis]{.ev-badge .thesis} [Analysis of an *ab initio* Potential Energy Landscape](http://wrap.warwick.ac.uk/167402/)
+
+[Prize]{.ev-badge .prize} Faculty Thesis Prize 2022 (joint winner)
+
+:::
+::::
+
+:::: {.cv-item}
+::: {.cv-dates}
+Sept 2017\
+Aug 2018
+:::
+
+::: {.ev-body}
+[MSc in Mathematics and Statistics]{.ev-title}\
+[University of Warwick]{.ev-where}
+
+[Thesis]{.ev-badge .thesis} Analysis of the Tight Binding Model
+
+[Project]{.ev-badge .project} [Research Study Group: Machine Learning for Image Analysis](https://warwick.ac.uk/fac/sci/masdoc/current/msc-modules/ma916/mlia/) [(with [Hanson Bharth](https://warwick.ac.uk/fac/sci/masdoc/people/studentpages/students2017/bharth), [Jacek Kiedrowski](https://warwick.ac.uk/fac/sci/masdoc/people/studentpages/students2017/kiedrowski) and [Jaro Sant](https://warwick.ac.uk/fac/sci/masdoc/people/studentpages/students2017/sant); supervised by [Dr Björn Stinner](https://warwick.ac.uk/fac/sci/maths/people/staff/bjorn_stinner/) and [Dr Stefan Adams](https://warwick.ac.uk/fac/sci/maths/people/staff/stefan_adams/))]{.ev-context}
+
+:::
+::::
+
+:::: {.cv-item}
+::: {.cv-dates}
+Sept 2013\
+Jun 2017
+:::
+
+::: {.ev-body}
+[MMath in Mathematics]{.ev-title}\
+[University of Warwick]{.ev-where}
+
+[Supervisor]{.ev-badge .person} [Prof. Filip Rindler](https://warwick.ac.uk/fac/sci/maths/people/staff/filip_rindler/)
+
+[Thesis]{.ev-badge .thesis} Incompatibility of Gradients
+
+:::
+::::
+:::::
+
+::::: {.cv-group}
+[Other]{.cv-label}
+
+:::: {.cv-item}
+::: {.cv-dates}
+2019/20
+:::
+
+::: {.ev-body}
+[SPAAM student seminar series]{.ev-title}\
+[[Statistics, Probability, Analysis & Applied Mathematics](https://warwick.ac.uk/fac/sci/maths/research/events/seminars/areas/spaam/), University of Warwick]{.ev-where}
+
+[Role]{.ev-badge .project} Organiser
+
+:::
+::::
+
+:::: {.cv-item}
+::: {.cv-dates}
+
+:::
+
+::: {.ev-body}
+[Associate Member]{.ev-title}\
+[Institute of Mathematics and its Applications ([IMA](https://ima.org.uk/))]{.ev-where}
+
+:::
+::::
+:::::
+
+
+:::
+
+:::::
+
+```{=html}
+<style>
+  /* Homepage only: the name lives in the banner, so drop it from the navbar */
+  .navbar-brand .navbar-title { display: none; }
+</style>
+<script>
+// Publication abstracts open / close when their "abstract" button is clicked.
+// When one opens, scroll smoothly down just far enough to show it -- never up.
+document.querySelectorAll(".abs-toggle").forEach(function (a) {
+  var li = a.closest("li");
+  function toggle(e) {
+    e.preventDefault();
+    li.classList.toggle("open");
+    if (li.classList.contains("open")) {
+      setTimeout(function () {   // wait for the slide-open transition
+        var bq = li.querySelector("blockquote.abstract");
+        var overflow = bq.getBoundingClientRect().bottom - window.innerHeight + 16;
+        if (overflow > 0) window.scrollBy({ top: overflow, behavior: "smooth" });
+      }, 380);
+    }
+  }
+  a.addEventListener("click", toggle);
+  a.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" || e.key === " ") toggle(e);
+  });
+});
+
+// Keyboard shortcuts from the original site: number keys open papers / slides
+document.addEventListener("keydown", function (event) {
+  var t = event.target;
+  if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
+  if (event.ctrlKey || event.metaKey || event.altKey) return;
+  var targets = {
+    "0": "notes/posts/body-ordered/slides-ihes-2023.pdf",
+    "1": "https://arxiv.org/pdf/1906.11740.pdf",
+    "2": "https://arxiv.org/pdf/2004.05356.pdf",
+    "3": "https://arxiv.org/pdf/2004.09323.pdf",
+    "4": "https://arxiv.org/pdf/2106.12572.pdf",
+    "5": "https://arxiv.org/pdf/2109.14771.pdf",
+    "6": "https://arxiv.org/pdf/2406.10915.pdf",
+    "7": "https://arxiv.org/pdf/2501.01188.pdf",
+    "8": "https://arxiv.org/pdf/2506.09595.pdf"
+  };
+  if (targets[event.key]) window.location = targets[event.key];
+});
+</script>
+```

@@ -1,0 +1,98 @@
+<script>
+// Navbar hover preview. While hovering a navbar link:
+//  - if the page's title banner is on screen, the banner shows that page's
+//    title and subtitle (restored when the pointer leaves);
+//  - if the user has scrolled the banner out of view, a small card with the
+//    same title and subtitle drops down under the hovered link instead.
+(function () {
+  var PAGES = {
+    "index.html":         ["Jack Thomas", "Postdoctoral Researcher"],
+    "teaching.html":      ["Teaching", "Courses, teaching resources and experience"],
+    "events.html":        ["Events", "Talks, posters, seminars and conferences"],
+    "notes/index.html":   ["Notes", "Talks, group meetings and notes"]
+  };
+
+  function pageKey(href) {
+    var path = new URL(href, location.href).pathname.replace(/\/$/, "/index.html");
+    // longest first, so "notes/index.html" wins over "index.html"
+    var keys = Object.keys(PAGES).sort(function (x, y) { return y.length - x.length; });
+    for (var i = 0; i < keys.length; i++) {
+      if (path.endsWith("/" + keys[i])) return keys[i];
+    }
+    return null;
+  }
+
+  // --- banner swap ----------------------------------------------------------
+  var banner = document.querySelector(".quarto-title-banner");
+  var title = banner && banner.querySelector("h1.title");
+  var subtitle = null, original = null;
+  if (title) {
+    subtitle = title.parentNode.querySelector(".subtitle");
+    original = { title: title.textContent, subtitle: subtitle ? subtitle.textContent : null };
+    if (!subtitle) {
+      subtitle = document.createElement("p");
+      subtitle.className = "subtitle lead nav-preview-subtitle";
+      subtitle.style.display = "none";
+      title.insertAdjacentElement("afterend", subtitle);
+    }
+  }
+  function bannerVisible() {
+    if (!banner) return false;
+    var nav = document.querySelector("#quarto-header");
+    var navBottom = nav ? nav.getBoundingClientRect().bottom : 0;
+    var r = title.getBoundingClientRect();
+    // the title itself must be below the (fixed) navbar and on screen
+    return r.top >= navBottom - 2 && r.bottom <= window.innerHeight;
+  }
+
+  // --- floating card (used when the banner is scrolled away) ----------------
+  var card = document.createElement("div");
+  card.className = "nav-preview-card";
+  card.setAttribute("aria-hidden", "true");
+  card.innerHTML = '<div class="nav-preview-card-title"></div><div class="nav-preview-card-sub"></div>';
+  document.body.appendChild(card);
+
+  function showCard(link, t, s) {
+    card.querySelector(".nav-preview-card-title").textContent = t;
+    card.querySelector(".nav-preview-card-sub").textContent = s || "";
+    var r = link.getBoundingClientRect();
+    card.classList.add("visible");
+    // align under the link, kept inside the window
+    var w = card.offsetWidth;
+    var left = Math.min(Math.max(8, r.left + r.width / 2 - w / 2), window.innerWidth - w - 8);
+    card.style.left = left + "px";
+    card.style.top = (r.bottom + 8) + "px";
+  }
+
+  function show(link, key) {
+    var t = PAGES[key][0], s = PAGES[key][1];
+    if (title && bannerVisible()) {
+      banner.classList.add("nav-previewing");
+      title.textContent = t;
+      subtitle.textContent = s || "";
+      subtitle.style.display = s ? "" : "none";
+    } else {
+      showCard(link, t, s);
+    }
+  }
+  function restore() {
+    card.classList.remove("visible");
+    if (!title) return;
+    banner.classList.remove("nav-previewing");
+    title.textContent = original.title;
+    subtitle.textContent = original.subtitle || "";
+    subtitle.style.display = original.subtitle ? "" : "none";
+  }
+
+  document.querySelectorAll(".navbar a.nav-link, .navbar a.navbar-brand").forEach(function (a) {
+    var key = pageKey(a.getAttribute("href"));
+    if (!key) return;
+    a.addEventListener("mouseenter", function () { show(a, key); });
+    a.addEventListener("mouseleave", restore);
+    a.addEventListener("focus", function () { show(a, key); });
+    a.addEventListener("blur", restore);
+  });
+  // scrolling while previewing would leave a stale preview behind
+  window.addEventListener("scroll", restore, { passive: true });
+})();
+</script>

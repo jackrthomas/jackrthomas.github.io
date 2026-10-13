@@ -1,0 +1,24 @@
+---
+title: "Friedel Oscillations"
+subtitle: "Poster: Friedel oscillations in the reduced Hartree-Fock model"
+date: 2024-01-01
+date-format: "MMMM YYYY"   # month-only date: hide the day
+categories: [Poster, Conference]
+description: "Friedel oscillations in the reduced Hartree-Fock model (joint work with Antoine Levitt)."
+image: thumb.png
+aliases:
+  - /Friedel/index.html
+  - /Herrsching/index.html
+---
+
+Presented at:
+
+- May 2025 -- [Moiré Materials Magic Workshop](https://events.simonsfoundation.org/event/6393d09c-6300-4c52-9655-272d0c05c96d/summary?RefId=Summary), Flatiron Institute, New York
+- December 2024 -- [Mathematical Physics and PDEs](https://www.math.lmu.de/~nam/MPDE2024.html), Herrsching ([version presented there](poster-herrsching-2024.pdf); see also the [talk](../screening-rhf/index.qmd#herrsching-2024))
+- January 2024 -- [Workshop on Model Systems in Quantum Mechanics](https://lcpq.github.io/MSQM/), Toulouse
+
+<iframe class="pdf-embed poster" src="poster.pdf#navpanes=0&pagemode=none&view=FitH"></iframe>
+
+[\[open fullscreen\]](poster.pdf)
+
+{{< include ../_friedel-details.qmd >}}

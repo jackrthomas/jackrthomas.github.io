@@ -1,0 +1,22 @@
+---
+title: "Analysis of the Tight Binding Model"
+subtitle: "MSc thesis (Summer Research Project), University of Warwick"
+date: 2018-08-01
+date-format: "MMMM YYYY"   # month-only date: hide the day
+categories: [Thesis]
+description: "MSc Summer Research Project (MASDOC, University of Warwick), supervised by Christoph Ortner."
+image: thumb.png
+---
+
+- MSc in Mathematics and Statistics (Summer Research Project), Mathematics and Statistics Doctoral Training Centre, University of Warwick (August 2018)
+- Supervised by Christoph Ortner
+
+::: {.callout-note collapse="true"}
+## Abstract
+
+We apply the super-cell method to define Fermi levels on finite sub-lattices within the framework of the canonical ensemble and tight binding model. These Fermi levels of course depend on the size of the sub-lattice and the model, but also on temperature via the Fermi-Dirac distribution. We show that the zero temperature and thermodynamic limits of the Fermi levels exist and commute. We then perturb the system by considering more general configurations of the lattice and find that, in the case of metals, the aforementioned results still hold. In the more complex case of insulators, we note that the results break down due to the introduction of new eigenstates within the band gap.
+:::
+
+<iframe class="pdf-embed poster" src="thesis.pdf#navpanes=0&pagemode=none&view=FitH"></iframe>
+
+[\[open fullscreen\]](thesis.pdf)

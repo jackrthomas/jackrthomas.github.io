@@ -1,0 +1,60 @@
+---
+title: "Body-ordered Approximations of Atomic Properties"
+subtitle: "Talk and group meeting"
+date: 2023-10-01
+date-format: "MMMM YYYY"   # month-only date: hide the day
+categories: [Talk, Seminar, Group Meeting]
+description: "Body-ordered approximations, polynomial approximation and interpolation nodes."
+image: chebyshev.gif
+---
+
+Given at:
+
+- September 2025 -- [Group meeting](#group-meeting-2025)
+- October 2023 -- [Journée de rentrée de l'équipe, IHES](#ihes-2023)
+
+## Group meeting (September 2025) {#group-meeting-2025}
+
+- Based on @ThomasChenOrtner2022:body-order,
+- [slides](slides-group-meeting-2025.pdf)
+- [slides - quadrature](quadrature.pdf)
+- [notes](notes.pdf)
+
+![](fig-1.png)
+
+### Equispaced nodes
+
+![](fig-2.gif)
+
+### Chebyshev nodes
+
+![](fig-3.gif)
+
+``` julia
+ plt3 = plot( 2:N, err[2:N], marker=:circle, yaxis=:log, title="absolute error: Chebyshev", legend=false)
+```
+
+![](fig-4.png)
+
+### What about approximation on $[-1, a] \cup [b, 1]$?
+
+Leja points:
+
+![](fig-5.gif)
+
+![](fig-6.gif)
+
+``` julia
+plot( 1:N, err, marker=:circle, yaxis=:log, title="absolute error: Leja", legend=false)
+```
+
+![](fig-7.png)
+
+## Journée de rentrée de l'équipe, IHES (October 2023) {#ihes-2023}
+
+- [IHES](https://www.ihes.fr/en/) -- [programme](programme-ihes-2023.pdf)
+- Based on @ThomasChenOrtner2022:body-order
+
+<iframe class="pdf-embed" src="slides-ihes-2023.pdf#navpanes=0&pagemode=none&view=FitH"></iframe>
+
+[\[open fullscreen\]](slides-ihes-2023.pdf)

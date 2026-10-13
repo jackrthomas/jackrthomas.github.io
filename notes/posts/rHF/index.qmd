@@ -1,0 +1,18 @@
+---
+title: "Decay of interatomic force constants in the reduced Hartree-Fock model"
+subtitle: "Based on Cances, Levitt, Thomas, 2025"
+date: 2025-10-10
+categories: [Group Meeting, Talk]
+description: "Group meeting on the decay of interatomic force constants in the reduced Hartree-Fock model."
+image: thumb.png
+---
+
+- Based on @CancesLevittThomas2025,
+- [notes](notes.pdf)
+
+References mentioned:
+
+- @Lions2001
+- @Cances2008
+- @Cances2010
+- @Levitt2020
