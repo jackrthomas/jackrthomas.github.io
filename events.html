@@ -109,13 +109,10 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link active" href="./events.html" aria-current="page"> 
 <span class="menu-text">Events</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./notes/index.html"> 
-<span class="menu-text">Notes</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="./notes/index.html" title="Notes" class="quarto-navigation-tool px-1" aria-label="Notes"><i class="bi bi-notes-glyph"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -523,7 +520,7 @@ document.querySelectorAll(".event-filter button").forEach(function (btn) {
     subtitle.style.display = original.subtitle ? "" : "none";
   }
 
-  document.querySelectorAll(".navbar a.nav-link, .navbar a.navbar-brand").forEach(function (a) {
+  document.querySelectorAll(".navbar a.nav-link, .navbar a.navbar-brand, .navbar a.quarto-navigation-tool").forEach(function (a) {
     var key = pageKey(a.getAttribute("href"));
     if (!key) return;
     a.addEventListener("mouseenter", function () { show(a, key); });

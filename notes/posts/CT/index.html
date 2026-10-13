@@ -160,13 +160,10 @@ window.Quarto = {
     <a class="nav-link" href="../../../events.html"> 
 <span class="menu-text">Events</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../notes/index.html"> 
-<span class="menu-text">Notes</span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+    <a href="../../../notes/index.html" title="Notes" class="quarto-navigation-tool px-1" aria-label="Notes"><i class="bi bi-notes-glyph"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -378,7 +375,7 @@ Benzi, Michele, Paola Boito, and Nader Razouk. 2013. <span>“Decay Properties o
     subtitle.style.display = original.subtitle ? "" : "none";
   }
 
-  document.querySelectorAll(".navbar a.nav-link, .navbar a.navbar-brand").forEach(function (a) {
+  document.querySelectorAll(".navbar a.nav-link, .navbar a.navbar-brand, .navbar a.quarto-navigation-tool").forEach(function (a) {
     var key = pageKey(a.getAttribute("href"));
     if (!key) return;
     a.addEventListener("mouseenter", function () { show(a, key); });
@@ -389,6 +386,23 @@ Benzi, Michele, Paola Boito, and Nader Razouk. 2013. <span>“Decay Properties o
   // scrolling while previewing would leave a stale preview behind
   window.addEventListener("scroll", restore, { passive: true });
 })();
+</script>
+<script>
+// Notes: make proofs collapsible, collapsed by default. Each proof's content is
+// wrapped in <details>; the summary shows the proof's title ("Proof",
+// "Proof of Lemma 1", ...). Remarks (which Quarto also marks as .proof) stay open.
+document.querySelectorAll("div.proof:not(.remark)").forEach(function (proof) {
+  var titleEl = proof.querySelector(".proof-title");
+  var label = titleEl ? titleEl.textContent.replace(/[.\s]+$/, "") : "Proof";
+  if (titleEl) titleEl.remove();
+  var details = document.createElement("details");
+  details.className = "proof-details";
+  var summary = document.createElement("summary");
+  summary.textContent = label;
+  details.appendChild(summary);
+  while (proof.firstChild) details.appendChild(proof.firstChild);
+  proof.appendChild(details);
+});
 </script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
