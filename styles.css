@@ -327,3 +327,12 @@ a.ev-notes {
 @media (max-width: 991.98px) {
   .navbar .quarto-navbar-tools { margin-left: auto; }   /* keep ✎ at the right, beside search */
 }
+
+/* 404 page */
+.notfound { max-width: 40rem; margin: 1rem 0 3rem; font-size: 1.05rem; }
+.notfound p:last-child { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+a.notfound-link {
+  padding: 0.35rem 1.1rem; border: 2px solid #700038; border-radius: 999px;
+  color: #700038; font-weight: 700;
+}
+a.notfound-link:hover { background: #700038 !important; color: #fff !important; }

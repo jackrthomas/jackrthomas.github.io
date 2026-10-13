@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://jack.thomaslabs.co.uk/events.html</loc>
-    <lastmod>2026-10-13T16:16:45.221Z</lastmod>
+    <loc>https://jackrthomas.github.io/events.html</loc>
+    <lastmod>2026-10-13T16:19:26.224Z</lastmod>
   </url>
   <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/index.html</loc>
-    <lastmod>2026-10-13T15:38:39.695Z</lastmod>
+    <loc>https://jackrthomas.github.io/index.html</loc>
+    <lastmod>2026-10-13T16:16:45.213Z</lastmod>
   </url>
   <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/screening-rhf/index.html</loc>
-    <lastmod>2026-10-13T15:45:49.553Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/CT/index.html</loc>
-    <lastmod>2026-10-13T14:46:26.885Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/rHF/index.html</loc>
-    <lastmod>2026-10-13T14:45:43.975Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/locality/index.html</loc>
-    <lastmod>2026-10-13T14:45:43.959Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/locality-poster/index.html</loc>
-    <lastmod>2026-10-13T15:45:49.497Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/teaching.html</loc>
-    <lastmod>2026-10-13T14:57:25.941Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/index.html</loc>
-    <lastmod>2026-10-13T15:45:49.485Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/phd-thesis/index.html</loc>
-    <lastmod>2026-10-13T15:45:49.509Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/body-ordered/index.html</loc>
-    <lastmod>2026-10-13T15:45:49.525Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/orthogonal-polynomials/index.html</loc>
-    <lastmod>2026-10-13T14:46:09.837Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/msc-thesis/index.html</loc>
-    <lastmod>2026-10-13T15:45:49.541Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jack.thomaslabs.co.uk/notes/posts/friedel-oscillations/index.html</loc>
+    <loc>https://jackrthomas.github.io/notes/posts/friedel-oscillations/index.html</loc>
     <lastmod>2026-10-13T15:45:49.565Z</lastmod>
   </url>
   <url>
-    <loc>https://jack.thomaslabs.co.uk/index.html</loc>
-    <lastmod>2026-10-13T16:16:45.213Z</lastmod>
+    <loc>https://jackrthomas.github.io/notes/posts/msc-thesis/index.html</loc>
+    <lastmod>2026-10-13T15:45:49.541Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/posts/orthogonal-polynomials/index.html</loc>
+    <lastmod>2026-10-13T14:46:09.837Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/posts/body-ordered/index.html</loc>
+    <lastmod>2026-10-13T15:45:49.525Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/posts/phd-thesis/index.html</loc>
+    <lastmod>2026-10-13T15:45:49.509Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/posts/locality-interatomic/index.html</loc>
+    <lastmod>2026-10-13T15:45:49.485Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/teaching.html</loc>
+    <lastmod>2026-10-13T16:19:26.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/posts/locality-poster/index.html</loc>
+    <lastmod>2026-10-13T15:45:49.497Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/posts/locality/index.html</loc>
+    <lastmod>2026-10-13T14:45:43.959Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/posts/rHF/index.html</loc>
+    <lastmod>2026-10-13T14:45:43.975Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/posts/CT/index.html</loc>
+    <lastmod>2026-10-13T14:46:26.885Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/posts/screening-rhf/index.html</loc>
+    <lastmod>2026-10-13T15:45:49.553Z</lastmod>
+  </url>
+  <url>
+    <loc>https://jackrthomas.github.io/notes/index.html</loc>
+    <lastmod>2026-10-13T15:38:39.695Z</lastmod>
   </url>
 </urlset>

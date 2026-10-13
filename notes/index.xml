@@ -6,15 +6,15 @@
       version="2.0">
 <channel>
 <title>Jack Thomas</title>
-<link>https://jack.thomaslabs.co.uk/notes/</link>
-<atom:link href="https://jack.thomaslabs.co.uk/notes/index.xml" rel="self" type="application/rss+xml"/>
+<link>https://jackrthomas.github.io/notes/</link>
+<atom:link href="https://jackrthomas.github.io/notes/index.xml" rel="self" type="application/rss+xml"/>
 <description></description>
 <generator>quarto-1.10.18</generator>
 <lastBuildDate>Fri, 27 Mar 2026 05:00:00 GMT</lastBuildDate>
 <item>
   <title>Orthogonal Polynomials &amp; Jacobi Operators</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/orthogonal-polynomials/</link>
+  <link>https://jackrthomas.github.io/notes/posts/orthogonal-polynomials/</link>
   <description><![CDATA[ 
 
 
@@ -112,7 +112,7 @@
 <h2 class="anchored" data-anchor-id="measures-moments-ops-and-jacobi-operators">Measures, moments, OPs, and Jacobi operators</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/orthogonal-polynomials/fig-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/orthogonal-polynomials/fig-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
 </div>
 </section>
@@ -203,14 +203,14 @@ Zheludeva, S I, M V Kovalchuk, and V G Kohn. 1985. <span>“The Photoelectric Vo
 </div></section></div> ]]></description>
   <category>Group Meeting</category>
   <category>Talk</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/orthogonal-polynomials/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/orthogonal-polynomials/</guid>
   <pubDate>Fri, 27 Mar 2026 05:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/orthogonal-polynomials/thumb.png" medium="image" type="image/png" height="90" width="144"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/orthogonal-polynomials/thumb.png" medium="image" type="image/png" height="90" width="144"/>
 </item>
 <item>
   <title>Locality</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/locality/</link>
+  <link>https://jackrthomas.github.io/notes/posts/locality/</link>
   <description><![CDATA[ 
 
 
@@ -259,14 +259,14 @@ Xie, Xiaowei, Kristin A. Persson, and David W. Small. 2020. <span>“Incorporati
 </div></section></div> ]]></description>
   <category>Group Meeting</category>
   <category>Talk</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/locality/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/locality/</guid>
   <pubDate>Thu, 23 Oct 2025 05:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/locality/thumb.png" medium="image" type="image/png" height="103" width="144"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/locality/thumb.png" medium="image" type="image/png" height="103" width="144"/>
 </item>
 <item>
   <title>Decay of interatomic force constants in the reduced Hartree-Fock model</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/rHF/</link>
+  <link>https://jackrthomas.github.io/notes/posts/rHF/</link>
   <description><![CDATA[ 
 
 
@@ -307,14 +307,14 @@ Lions, P.-L, I Catto, and C Le Bris. 2001. <span>“On the Thermodynamic Limit f
 </div></section></div> ]]></description>
   <category>Group Meeting</category>
   <category>Talk</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/rHF/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/rHF/</guid>
   <pubDate>Fri, 10 Oct 2025 05:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/rHF/thumb.png" medium="image" type="image/png" height="74" width="144"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/rHF/thumb.png" medium="image" type="image/png" height="74" width="144"/>
 </item>
 <item>
   <title>Combes-Thomas estimate for banded matrices</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/CT/</link>
+  <link>https://jackrthomas.github.io/notes/posts/CT/</link>
   <description><![CDATA[ 
 
 
@@ -335,7 +335,7 @@ Lions, P.-L, I Catto, and C Le Bris. 2001. <span>“On the Thermodynamic Limit f
 </div>
 <div id="exm-chebyshev-resolvent" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1</strong></span> Here, we let <img src="https://latex.codecogs.com/png.latex?p_n"> be the polynomial interpolation of <img src="https://latex.codecogs.com/png.latex?x%20%5Cmapsto%20(z%20-%20x)%5E%7B-1%7D"> on Chebyshev nodes <img src="https://latex.codecogs.com/png.latex?%5C%7B%20%5Ccos%20%5Cfrac%7Bj%5Cpi%7D%7Bn%7D%20%5C%7D_%7Bj=0%7D%5En"> and plot the <img src="https://latex.codecogs.com/png.latex?L%5E%5Cinfty"> error on <img src="https://latex.codecogs.com/png.latex?%5B-1,1%5D"> for different choices of <img src="https://latex.codecogs.com/png.latex?z"> (this gives an upper bound on the locality of the resolvent as above):</p>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/CT/fig-1.png" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/CT/fig-1.png" class="img-fluid"></p>
 <p>This is <img src="https://latex.codecogs.com/png.latex?O(e%5E%7B-%5Ceta%20%5C,%20n%7D)"> decay with</p>
 <table class="caption-top table">
 <thead>
@@ -379,14 +379,14 @@ Benzi, Michele, Paola Boito, and Nader Razouk. 2013. <span>“Decay Properties o
 </div>
 </div></section></div> ]]></description>
   <category>Notes</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/CT/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/CT/</guid>
   <pubDate>Wed, 10 Sep 2025 05:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/CT/thumb.png" medium="image" type="image/png" height="91" width="144"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/CT/thumb.png" medium="image" type="image/png" height="91" width="144"/>
 </item>
 <item>
   <title>Screening in the reduced Hartree-Fock model</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/screening-rhf/</link>
+  <link>https://jackrthomas.github.io/notes/posts/screening-rhf/</link>
   <description><![CDATA[ 
 
 
@@ -451,14 +451,14 @@ Levitt, Antoine. 2020. <span>“Screening in the Finite-Temperature Reduced Hart
 </div></section></div> ]]></description>
   <category>Talk</category>
   <category>Conference</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/screening-rhf/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/screening-rhf/</guid>
   <pubDate>Sun, 01 Dec 2024 06:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/screening-rhf/thumb.png" medium="image" type="image/png" height="81" width="144"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/screening-rhf/thumb.png" medium="image" type="image/png" height="81" width="144"/>
 </item>
 <item>
   <title>Friedel Oscillations</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/friedel-oscillations/</link>
+  <link>https://jackrthomas.github.io/notes/posts/friedel-oscillations/</link>
   <description><![CDATA[ 
 
 
@@ -515,7 +515,7 @@ Levitt, Antoine. 2020. <span>“Screening in the Finite-Temperature Reduced Hart
 <p>We may compute <img src="https://latex.codecogs.com/png.latex?%5Cchi_0"> explicitly in Fourier space: The expression <img src="https://latex.codecogs.com/png.latex?%5Cchi_0(q)%20=%20%5Cint_%7B%5Cmathcal%20B%7D%20%5Cfrac%7Bf_%7Bk+q%7D%20-%20f_k%7D%7B%5Cep_%7Bk+q%7D%20-%20%5Cep_k%7D%20%5Cmathrm%7Bd%7Dk"> leads to [4] <img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%20%20%5Cchi_0(q)%20&amp;=%20-c_d%20k_%7B%5Cmathrm%7BF%7D%7D%5E%7Bd-2%7D%20u_d%5Cbig(%20%5Ctfrac%7B%7Cq%7C%7D%7Bk_%7B%5Cmathrm%7BF%7D%7D%7D%20%5Cbig),%0A%20%20%5Cqquad%20%5Ctext%7Bwhere%7D%20%5C%5C%0A%20%20u_d(q)%20&amp;:=%0A%20%20%5Cbegin%7Bcases%7D%0A%20%20%20%20%5Cfrac%7B1%7D%7Bq%7D%20%5Clog%20%5Cleft%7C%20%5Cfrac%7B2%20+%20q%7D%7B2%20-%20q%7D%20%5Cright%7C%20&amp;%5Ctext%7Bif%20%7D%20d=1%20%5C%5C%0A%20%20%20%201%20-%20%5CTheta(%20q%20-%202%20)%20%5Csqrt%7B1%20-%20%5Cfrac%7B4%7D%7Bq%5E2%7D%7D%20&amp;%5Ctext%7Bif%20%7D%20d=2%20%5C%5C%0A%20%20%20%201%20+%20%5Cfrac%7B4%20-%20q%5E2%7D%7B4q%7D%20%5Clog%20%5Cleft%7C%20%5Cfrac%7B2%20+%20q%7D%7B2%20-%20q%7D%20%5Cright%7C%20&amp;%5Ctext%7Bif%20%7D%20d=3,%0A%20%20%5Cend%7Bcases%7D%0A%20%20%5Ctag%7B3%7D%5Clabel%7Beq:ud%7D%0A%5Cend%7Balign%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%5CTheta%20=%20%5Cbm%201_%7B%5B0,%5Cinfty)%7D"> is the Heaviside function, and <img src="https://latex.codecogs.com/png.latex?c_1%20=%20%5Ctfrac%7B1%7D%7B%5Cpi%7D">, <img src="https://latex.codecogs.com/png.latex?c_2%20=%20%5Ctfrac%7B1%7D%7B2%5Cpi%7D">, <img src="https://latex.codecogs.com/png.latex?c_3%20=%20%5Ctfrac%7B1%7D%7B4%5Cpi%5E2%7D">. In this case, <img src="https://latex.codecogs.com/png.latex?%5Cchi_0"> is known as the <em>Lindhard function</em> [7]. In particular, <img src="https://latex.codecogs.com/png.latex?%5Cchi_0(q)"> is smooth away from points <img src="https://latex.codecogs.com/png.latex?q%20=%20%5Cbm%20k_1%20-%20%5Cbm%20k_2"> that connects two points of the Fermi surface <img src="https://latex.codecogs.com/png.latex?%5Cbm%20k_1%20%5Cnot=%20%5Cbm%20k_2%20%5Cin%20S(%5Cvarepsilon_%7B%5Cmathrm%7BF%7D%7D)"> where the tangent planes are parallel. For the free electron gas, this occurs on the sphere <img src="https://latex.codecogs.com/png.latex?%7Cq%7C%20=%202%20k_%7B%5Cmathrm%7BF%7D%7D">. For <img src="https://latex.codecogs.com/png.latex?d%20=%201">, the logarithmic divergence is responsible for the <em>Peierls instability</em>, whereas <img src="https://latex.codecogs.com/png.latex?%5Cnabla%5Cchi_0(q)"> has inverse square root and logarithmic singularities in dimensions <img src="https://latex.codecogs.com/png.latex?2"> and <img src="https://latex.codecogs.com/png.latex?3">, respectively.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/friedel-oscillations/Fig1.png" class="img-fluid figure-img"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/friedel-oscillations/Fig1.png" class="img-fluid figure-img"></p>
 <figcaption><strong>Lindhard function.</strong> Plot of the Lindhard function <img src="https://latex.codecogs.com/png.latex?%5Cchi_0(q)"> for <img src="https://latex.codecogs.com/png.latex?d%20=%201"> (blue), <img src="https://latex.codecogs.com/png.latex?2"> (red), and <img src="https://latex.codecogs.com/png.latex?3"> (green).</figcaption>
 </figure>
 </div>
@@ -527,14 +527,14 @@ Levitt, Antoine. 2020. <span>“Screening in the Finite-Temperature Reduced Hart
  ]]></description>
   <category>Poster</category>
   <category>Conference</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/friedel-oscillations/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/friedel-oscillations/</guid>
   <pubDate>Mon, 01 Jan 2024 06:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/friedel-oscillations/thumb.png" medium="image" type="image/png" height="204" width="144"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/friedel-oscillations/thumb.png" medium="image" type="image/png" height="204" width="144"/>
 </item>
 <item>
   <title>Body-ordered Approximations of Atomic Properties</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/body-ordered/</link>
+  <link>https://jackrthomas.github.io/notes/posts/body-ordered/</link>
   <description><![CDATA[ 
 
 
@@ -554,14 +554,14 @@ Levitt, Antoine. 2020. <span>“Screening in the Finite-Temperature Reduced Hart
 <li><a href="quadrature.pdf">slides - quadrature</a></li>
 <li><a href="notes.pdf">notes</a></li>
 </ul>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/body-ordered/fig-1.png" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/body-ordered/fig-1.png" class="img-fluid"></p>
 <section id="equispaced-nodes" class="level3">
 <h3 class="anchored" data-anchor-id="equispaced-nodes">Equispaced nodes</h3>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/body-ordered/fig-2.gif" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/body-ordered/fig-2.gif" class="img-fluid"></p>
 </section>
 <section id="chebyshev-nodes" class="level3">
 <h3 class="anchored" data-anchor-id="chebyshev-nodes">Chebyshev nodes</h3>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/body-ordered/fig-3.gif" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/body-ordered/fig-3.gif" class="img-fluid"></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"> plt3 <span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span> <span class="fu" style="color: #4758AB;
@@ -587,13 +587,13 @@ background-color: null;
 font-style: inherit;">=</span><span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">false</span>)</span></code></pre></div></div>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/body-ordered/fig-4.png" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/body-ordered/fig-4.png" class="img-fluid"></p>
 </section>
 <section id="what-about-approximation-on--1-a-cup-b-1" class="level3">
 <h3 class="anchored" data-anchor-id="what-about-approximation-on--1-a-cup-b-1">What about approximation on <img src="https://latex.codecogs.com/png.latex?%5B-1,%20a%5D%20%5Ccup%20%5Bb,%201%5D">?</h3>
 <p>Leja points:</p>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/body-ordered/fig-5.gif" class="img-fluid"></p>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/body-ordered/fig-6.gif" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/body-ordered/fig-5.gif" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/body-ordered/fig-6.gif" class="img-fluid"></p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>( <span class="fl" style="color: #AD0000;
@@ -613,7 +613,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">false</span>)</span></code></pre></div></div>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/body-ordered/fig-7.png" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/body-ordered/fig-7.png" class="img-fluid"></p>
 </section>
 </section>
 <section id="ihes-2023" class="level2">
@@ -638,14 +638,14 @@ Thomas, Jack, Huajie Chen, and Christoph Ortner. 2022. <span>“Body-Ordered App
   <category>Talk</category>
   <category>Seminar</category>
   <category>Group Meeting</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/body-ordered/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/body-ordered/</guid>
   <pubDate>Sun, 01 Oct 2023 05:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/body-ordered/chebyshev.gif" medium="image" type="image/gif"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/body-ordered/chebyshev.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>Locality of Interatomic Interactions</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/</link>
+  <link>https://jackrthomas.github.io/notes/posts/locality-interatomic/</link>
   <description><![CDATA[ 
 
 
@@ -699,7 +699,7 @@ Thomas, Jack, Huajie Chen, and Christoph Ortner. 2022. <span>“Body-Ordered App
 <p><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign%7D%0A%20%20%20%20%5BH%5E2%5D_%7B%5Cell%20k%7D%20&amp;=%20%5Csum_%7B%5Cell_1%7D%20H_%7B%5Cell%20%5Cell_1%7D%20H_%7B%5Cell_1%20k%7D%20%20%5C%5C%0A%20%20%20%20%5BH%5E3%5D_%7B%5Cell%20k%7D%20&amp;=%20%5Csum_%7B%5Cell_1%20%5Cell_2%7D%20H_%7B%5Cell%20%5Cell_1%7D%20H_%7B%5Cell_1%20%5Cell_2%7D%20H_%7B%5Cell_2%20k%7D%20%5C%5C%0A%20%20%20%20%5BH%5E4%5D_%7B%5Cell%20k%7D%20&amp;=%20%5Csum_%7B%5Cell_1%20%5Cell_2%20%5Cell_3%7D%20H_%7B%5Cell%20%5Cell_1%7D%20H_%7B%5Cell_1%20%5Cell_2%7D%20H_%7B%5Cell_2%20%5Cell_3%7D%20H_%7B%5Cell_3%20k%7D%0A%5Cend%7Balign%7D%0A"></p>
 <p>etc., we have <img src="https://latex.codecogs.com/png.latex?%5BH%5En%5D_%7B%5Cell%20k%7D%20=%200"> for all <img src="https://latex.codecogs.com/png.latex?r_%7B%5Cell%20k%7D%20%3E%20n">.</p>
 </div><div class="column">
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/fig-1.gif" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/locality-interatomic/fig-1.gif" class="img-fluid"></p>
 </div>
 </div>
 <p>Therefore, we can bound the off-diagonal decay of functions of the Hamiltonian: e.g.&nbsp;if <img src="https://latex.codecogs.com/png.latex?r_%7B%5Cell%20k%7D%20%3E%20n">, then</p>
@@ -707,7 +707,7 @@ Thomas, Jack, Huajie Chen, and Christoph Ortner. 2022. <span>“Body-Ordered App
 <p>where <img src="https://latex.codecogs.com/png.latex?%5Ceta%20%5Csim%20%5Cmathrm%7Bdist%7D%5Cbig(%20z,%20%5Csigma(H)%20%5Cbig)">.</p>
 <div id="exm-chebyshev-resolvent" class="theorem example">
 <p><span class="theorem-title"><strong>Example 1</strong></span> Here, we let <img src="https://latex.codecogs.com/png.latex?p_n"> be the polynomial interpolation of <img src="https://latex.codecogs.com/png.latex?x%20%5Cmapsto%20(z%20-%20x)%5E%7B-1%7D"> on Chebyshev nodes <img src="https://latex.codecogs.com/png.latex?%5C%7B%20%5Ccos%20%5Cfrac%7Bj%5Cpi%7D%7Bn%7D%20%5C%7D_%7Bj=0%7D%5En"> and plot the <img src="https://latex.codecogs.com/png.latex?L%5E%5Cinfty"> error on <img src="https://latex.codecogs.com/png.latex?%5B-1,1%5D"> for different choices of <img src="https://latex.codecogs.com/png.latex?z"> (this gives an upper bound on the locality of the resolvent as above):</p>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/fig-2.png" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/locality-interatomic/fig-2.png" class="img-fluid"></p>
 <p>This is <img src="https://latex.codecogs.com/png.latex?O(e%5E%7B-%5Ceta%20%5C,%20n%7D)"> decay with</p>
 <table class="caption-top table">
 <thead>
@@ -744,11 +744,11 @@ Thomas, Jack, Huajie Chen, and Christoph Ortner. 2022. <span>“Body-Ordered App
 </section>
 <section id="polynomials-are-body-ordered" class="level3">
 <h3 class="anchored" data-anchor-id="polynomials-are-body-ordered">Polynomials are body-ordered</h3>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/fig-3.gif" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/locality-interatomic/fig-3.gif" class="img-fluid"></p>
 </section>
 <section id="approximating-varepsilonz-zfz-on--11" class="level3">
 <h3 class="anchored" data-anchor-id="approximating-varepsilonz-zfz-on--11">Approximating <img src="https://latex.codecogs.com/png.latex?%5Cvarepsilon(z)%20=%20zF(z)"> on <img src="https://latex.codecogs.com/png.latex?%5B-1,1%5D"></h3>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/fig-4.png" class="img-fluid"> <img src="https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/fig-5.png" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/locality-interatomic/fig-4.png" class="img-fluid"> <img src="https://jackrthomas.github.io/notes/posts/locality-interatomic/fig-5.png" class="img-fluid"></p>
 <p>This is <img src="https://latex.codecogs.com/png.latex?O(e%5E%7B-%5Ceta%20n%7D)"> with</p>
 <table class="caption-top table">
 <thead>
@@ -783,9 +783,9 @@ Thomas, Jack, Huajie Chen, and Christoph Ortner. 2022. <span>“Body-Ordered App
 </section>
 <section id="leja-points" class="level3">
 <h3 class="anchored" data-anchor-id="leja-points">Leja points</h3>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/fig-6.gif" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/locality-interatomic/fig-6.gif" class="img-fluid"></p>
 <p>Using these points to approximate <img src="https://latex.codecogs.com/png.latex?F(x)%20=%20(1%20+%20e%5E%7B10%20x%7D)%5E%7B-1%7D"> on <img src="https://latex.codecogs.com/png.latex?%5B-1,%20-.15%5D%20%5Ccup%20%5B.2,1%5D">, we get:</p>
-<p><img src="https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/fig-7.gif" class="img-fluid"></p>
+<p><img src="https://jackrthomas.github.io/notes/posts/locality-interatomic/fig-7.gif" class="img-fluid"></p>
 </section>
 </section>
 <section id="ihp-2023" class="level2">
@@ -811,14 +811,14 @@ Thomas, Jack, Huajie Chen, and Christoph Ortner. 2022. <span>“Body-Ordered App
 </div></section></div> ]]></description>
   <category>Talk</category>
   <category>Seminar</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/locality-interatomic/</guid>
   <pubDate>Thu, 01 Jun 2023 05:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/locality-interatomic/hops.gif" medium="image" type="image/gif"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/locality-interatomic/hops.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>Analysis of an ab initio Potential Energy Landscape</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/phd-thesis/</link>
+  <link>https://jackrthomas.github.io/notes/posts/phd-thesis/</link>
   <description><![CDATA[ 
 
 
@@ -857,14 +857,14 @@ Thomas, Jack, Huajie Chen, and Christoph Ortner. 2022. <span>“Body-Ordered App
 
  ]]></description>
   <category>Thesis</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/phd-thesis/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/phd-thesis/</guid>
   <pubDate>Wed, 01 Sep 2021 05:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/phd-thesis/thumb.png" medium="image" type="image/png" height="204" width="144"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/phd-thesis/thumb.png" medium="image" type="image/png" height="204" width="144"/>
 </item>
 <item>
   <title>Locality of Interatomic Interactions in Tight Binding Models for Insulators</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/locality-poster/</link>
+  <link>https://jackrthomas.github.io/notes/posts/locality-poster/</link>
   <description><![CDATA[ 
 
 
@@ -912,14 +912,14 @@ Ortner, Christoph, Jack Thomas, and Huajie Chen. 2020. <span>“Locality of Inte
 </div></section></div> ]]></description>
   <category>Poster</category>
   <category>Conference</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/locality-poster/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/locality-poster/</guid>
   <pubDate>Wed, 01 Jul 2020 05:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/locality-poster/thumb.png" medium="image" type="image/png" height="204" width="144"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/locality-poster/thumb.png" medium="image" type="image/png" height="204" width="144"/>
 </item>
 <item>
   <title>Analysis of the Tight Binding Model</title>
   <dc:creator>Jack Thomas</dc:creator>
-  <link>https://jack.thomaslabs.co.uk/notes/posts/msc-thesis/</link>
+  <link>https://jackrthomas.github.io/notes/posts/msc-thesis/</link>
   <description><![CDATA[ 
 
 
@@ -954,9 +954,9 @@ Ortner, Christoph, Jack Thomas, and Huajie Chen. 2020. <span>“Locality of Inte
 
  ]]></description>
   <category>Thesis</category>
-  <guid>https://jack.thomaslabs.co.uk/notes/posts/msc-thesis/</guid>
+  <guid>https://jackrthomas.github.io/notes/posts/msc-thesis/</guid>
   <pubDate>Wed, 01 Aug 2018 05:00:00 GMT</pubDate>
-  <media:content url="https://jack.thomaslabs.co.uk/notes/posts/msc-thesis/thumb.png" medium="image" type="image/png" height="204" width="144"/>
+  <media:content url="https://jackrthomas.github.io/notes/posts/msc-thesis/thumb.png" medium="image" type="image/png" height="204" width="144"/>
 </item>
 </channel>
 </rss>
