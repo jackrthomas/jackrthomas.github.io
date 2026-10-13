@@ -1,0 +1,266 @@
+/* Notes-only styles (theorem environments, exercises, etc.).
+   Attached to every page under notes/ by notes/_metadata.yml. */
+
+.theorem-title {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.theorem {
+  padding: 1em 1em .5em 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+  border-left: 5px solid rgb(229, 254, 4);
+  background-color: rgba(229, 254, 4,.1);
+}
+
+.example {
+  border-left: 5px solid #2780e3;
+  background-color: rgba(39,128,227,.1);
+}
+
+.remark {
+  padding: 1em 1em .5em 1em;
+  margin: 1em 0;
+  border-radius: 4px;
+  border-left: 5px solid rgb(1, 230, 255);
+  background-color: rgb(1, 230, 255,.1);
+}
+
+.exercise {
+  border-left: 5px solid #a214c9;
+  background-color: rgba(162,20,201,.1);
+}
+
+.blank-exr {
+  border-left: 5px solid #a214c9;
+  background-color: rgba(162,20,201,.1);
+  padding: 1em 1em .5em 1em;
+  margin: 0em 0;
+  border-radius: 4px;
+}
+
+.box {
+  border-left: 5px solid #a214c9;
+  background-color: rgba(162,20,201,.1);
+  padding: 1em 1em .25em 1em;
+  margin: 0em 0;
+  margin-bottom: 1em;
+  border-radius: 4px;
+}
+
+.definition {
+  border-left: 5px solid rgb(238, 104, 0);
+  background-color: rgba(238, 104, 0,.1);
+}
+
+.lemma {
+  border-left: 5px solid rgb(42, 235, 21);
+  background-color: rgba(42, 235, 21, .1);
+}
+
+.proposition {
+  border-left: 5px solid rgb(42, 235, 21);
+  background-color: rgba(42, 235, 21, .1);
+}
+
+.sol {
+  border-left: 5px solid #2780e3;
+  background-color: #f8f9fa;
+}
+
+.exercise-box {
+  background-color: #f5e7f9;
+  border-left: 5px solid #7b1fa2;
+  border-radius: 4px;
+  padding: 0.85em 1.25em;
+  margin: 1.2em 0;
+}
+
+/* Forces the title line, bold elements, and Quarto @exr links to be black & bold
+   (first-of-type: in the exercise bank the difficulty stars come before the title) */
+.exercise-box > p:first-of-type,
+.exercise-box > p:first-of-type strong,
+.exercise-box > p:first-of-type a {
+  color: #000000 !important;
+  font-weight: 700 !important;
+  text-decoration: none;
+}
+
+.exercise-box p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Exercise hint & solution ─────────────────────────────────────────────── */
+
+.exercise-hint {
+  background-color: #e8f0fd;
+  border-left: 5px solid #2780e3;
+  border-radius: 4px;
+  padding: 0.85em 1.25em;
+  margin: 0.3em 0 0;   /* was 1em 0 0 */
+}
+
+.exercise-hint p:first-child {
+  color: #000000 !important;
+}
+
+.exercise-hint p:last-child {
+  margin-bottom: 0;
+}
+
+.exercise-solution {
+  background-color: #e8f8f0;
+  border-left: 5px solid #1a8a4a;
+  border-radius: 4px;
+  padding: 0.85em 1.25em;
+  margin: 0.3em 0 0;   /* was 1em 0 0 */
+}
+
+.exercise-solution p:first-child {
+  color: #000000 !important;
+}
+
+.exercise-solution p:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Question bank link inside exercise/example boxes ─────────────────────── */
+
+.exercise, .exercise-box, .blank-exr {
+  position: relative;
+}
+
+.exercise a[href*="bank.html"],
+.exercise-box a[href*="bank.html"],
+.blank-exr a[href*="bank.html"] {
+  position: absolute;
+  top: 0.55em;
+  right: 0.75em;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 9px 2px 6px;
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+  background: rgba(123, 31, 162, 0.1);
+  color: #7b1fa2;
+  border: 1px solid rgba(123, 31, 162, 0.25);
+  opacity: 0.7;
+  transition: opacity 0.15s, background 0.15s;
+}
+
+.exercise a[href*="bank.html"]::before,
+.exercise-box a[href*="bank.html"]::before,
+.blank-exr a[href*="bank.html"]::before {
+  content: '';
+  display: inline-block;
+  width: 11px;
+  height: 11px;
+  background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="%237b1fa2"%3E%3Cpath d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/%3E%3Cpath d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/%3E%3C/svg%3E');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.exercise a[href*="bank.html"]:hover,
+.exercise-box a[href*="bank.html"]:hover,
+.blank-exr a[href*="bank.html"]:hover {
+  opacity: 1;
+  background: rgba(123, 31, 162, 0.18);
+  text-decoration: none;
+}
+
+/* ── "Exercise bank" in the sidebar: a pill button with the same icon as the bank links ── */
+
+#quarto-sidebar .sidebar-item a.sidebar-link[href$="bank.html"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: auto;
+  margin: 0.2rem 0;
+  padding: 3px 12px 3px 9px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  background: rgba(123, 31, 162, 0.1);
+  color: #7b1fa2;
+  border: 1px solid rgba(123, 31, 162, 0.25);
+  transition: background 0.15s, color 0.15s;
+}
+
+/* the icon is a mask filled with the text colour, so it follows hover/active colours */
+#quarto-sidebar .sidebar-item a.sidebar-link[href$="bank.html"]::before {
+  content: '';
+  flex-shrink: 0;
+  width: 13px;
+  height: 13px;
+  background-color: currentColor;
+  -webkit-mask: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3E%3Cpath d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/%3E%3Cpath d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/%3E%3C/svg%3E') no-repeat center / contain;
+          mask: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"%3E%3Cpath d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/%3E%3Cpath d="M3 5.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8zm0 2.5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5z"/%3E%3C/svg%3E') no-repeat center / contain;
+}
+
+#quarto-sidebar .sidebar-item a.sidebar-link[href$="bank.html"]:hover {
+  background: rgba(123, 31, 162, 0.18);
+  color: #7b1fa2;
+}
+
+/* on the bank page itself */
+#quarto-sidebar .sidebar-item a.sidebar-link.active[href$="bank.html"] {
+  background: #7b1fa2;
+  border-color: #7b1fa2;
+  color: #fff;
+}
+
+.answer-box {
+          background-color: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-left: 4px solid #3b82f6;
+          border-radius: 8px;
+          padding: 1.25rem 1.5rem;
+          margin: 1.5rem 0;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+.answer-title {
+         font-weight: 700;
+          color: #1d4ed8;
+          font-size: 0.875rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          margin-bottom: 0.5rem;
+        }
+
+
+  details {
+  border-left: 5px solid #6c757d;
+  background: #f8f9fa;
+  border-radius: 4px;
+  padding: 0.5em 1em;
+  margin: 0.75em 0;
+}
+
+details summary {
+  font-weight: 600;
+  cursor: pointer;
+  color: #6c757d;
+  user-select: none;
+}
+
+details[open] summary {
+  margin-bottom: 0.5em;
+}
+/* space below figures produced by code cells (static plots and animations) */
+.cell:has(.cell-output-display) {
+  margin-bottom: 1.5em;
+}
+
+/* wide display equations (e.g. divided difference tables) scroll sideways on narrow screens */
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.2em 0;
+}
