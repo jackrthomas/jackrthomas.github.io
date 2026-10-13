@@ -28,6 +28,8 @@ search: false
 </script>
 ```
 
+![The outline of "404" approximated by a Fourier series: the partial sums over $|j| \le N$ (black) approach the outline (gray) as $N$ grows; the epicycles (red) are the individual terms.](/images/404-fourier.gif){.notfound-gif fig-alt="Animation: a Fourier series drawing the outline of 404 with rotating circles, getting closer to the shape as N increases."}
+
 ::: {.notfound}
 The page you were looking for may have moved, or the address may be mistyped.
 Try one of these instead, or use the search (top right).
