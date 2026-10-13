@@ -76,7 +76,7 @@ def partial_sum(N, t):
     return (coef(js)[None, :] * np.exp(2j * np.pi * np.outer(t, js))).sum(axis=1)
 
 # -------------------------------------------------------------- rendering ----
-W, H = 720, 460                          # picture area
+W, H = 720, 420                          # picture area
 EXPR_H = 190                             # formula panel underneath
 PAD = 14
 xs, ys = z.real, z.imag
@@ -93,9 +93,9 @@ def chain_extent(N=100, samples=400):
             ex = max(ex, abs(pos.real) + r); ey = max(ey, abs(pos.imag) + r)
             pos += coef(j) * np.exp(2j * np.pi * j * t)
     return ex, ey
-ex, ey = chain_extent()
-scale = min((W / 2 - PAD) / ex, ((H - 30) / 2 - PAD) / ey)
-cx, cy = W / 2, (H - 30) / 2
+ex, ey = chain_extent(N=404)
+scale = min((W / 2 - PAD) / ex, (H / 2 - PAD) / ey)
+cx, cy = W / 2, H / 2
 def px(w):
     return np.stack([cx + scale * w.real, cy - scale * w.imag], axis=-1)
 
@@ -103,13 +103,16 @@ GRAY, BLACK = (175, 175, 175), (0, 0, 0)
 RED = (112, 0, 56)                       # the site maroon (#700038) for the epicycles
 target_pts = [tuple(p) for p in px(z)]
 hole_pts = [[tuple(p) for p in px(h)] for h in holes_z]
-LABEL_FONT = ImageFont.truetype(FONT, 18)
+LABEL_FONT = ImageFont.truetype(FONT, 15)
+# the "N = ..." label sits in the middle of the 0's hole (the hole nearest the centre)
+zero_hole = min(holes_z, key=lambda h: abs(h.mean().real))
+(LABEL_X, LABEL_Y), = px(np.array([zero_hole.mean()]))
 SS = 2                                   # supersampling for smooth lines
 
 # ---------------------------------------------------------- formula panel ----
 # S_N(t) = c_0 + c_1 e^{2 pi i t} + c_{-1} e^{-2 pi i t} + ... (coefficients to
 # 2 decimal places), typeset with matplotlib's mathtext, flowed into lines.
-MATH_PT, MATH_DPI = 10.5, 100
+MATH_PT, MATH_DPI = 8, 100
 _cache = {}
 def math_img(tex):
     if tex not in _cache:
@@ -129,7 +132,7 @@ def cnum(w):
 def term_tex(j, first=False):
     if j == 0:
         return "$" + cnum(coef(0)) + "$"
-    e = (r"2\pi i t" if abs(j) == 1 else rf"2\pi i\,{abs(j)}t")
+    e = r"2\pi i t" if abs(j) == 1 else rf"{2 * abs(j)}\pi i t"   # e.g. e^{6 pi i t}
     e = ("-" if j < 0 else "") + e
     return "$" + ("" if first else "+") + rf"{cnum(coef(j))}\,e^{{{e}}}" + "$"
 
@@ -171,7 +174,7 @@ def frame(N, t_pen, trace_t=None):
     if trace_t is None:
         curve.append(curve[0])
     if len(curve) > 1:
-        dr.line(P(curve), fill=BLACK, width=2 * SS, joint="curve")
+        dr.line(P(curve), fill=BLACK, width=3 * SS + 1, joint="curve")   # thicker trace
     # epicycles (red): centre term first, then +1,-1,+2,-2,... ordered by size
     js = sorted(range(-N, N + 1), key=lambda j: -abs(coef(j)) if j else np.inf)
     js = [0] + [j for j in js if j != 0]
@@ -190,10 +193,13 @@ def frame(N, t_pen, trace_t=None):
     (xp, yp), = px(np.array([pos]))
     dr.ellipse([(xp - 3.5) * SS, (yp - 3.5) * SS, (xp + 3.5) * SS, (yp + 3.5) * SS], fill=RED)
     im = im.resize((W, H), Image.LANCZOS)
-    ImageDraw.Draw(im).text((PAD, H - 26), f"N = {N}", font=LABEL_FONT, fill=(0, 0, 0))
+    ImageDraw.Draw(im).multiline_text((LABEL_X, LABEL_Y), f"N =\n{N}", font=LABEL_FONT,
+                                      fill=(0, 0, 0), anchor="mm", align="center", spacing=2)
+    if N not in PANELS:
+        PANELS[N] = expr_panel(N)
     full = Image.new("RGB", (W, H + EXPR_H), "white")
     full.paste(im, (0, 0))
-    full.paste(PANELS.setdefault(N, expr_panel(N)), (0, H))
+    full.paste(PANELS[N], (0, H))
     return full
 
 PANELS = {}
@@ -204,7 +210,7 @@ if PREVIEW:
 
 # -------------------------------------------------------------- animation ----
 frames, durations = [], []
-Ns = [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 70, 100]
+Ns = [1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 70, 100, 404]
 for k, N in enumerate(Ns):
     # the pen sweeps once round the curve for each N, tracing S_N as it goes
     steps = 18
@@ -212,6 +218,7 @@ for k, N in enumerate(Ns):
         t = i / steps
         frames.append(frame(N, t % 1.0, trace_t=np.linspace(0, t, max(2, int(900 * t)))))
         durations.append(45)             # constant speed: no pauses between cycles
+durations[-1] = 3000                     # ...except a pause on the final N = 404 curve
 
 # one shared palette (from the last frame: white, gray, black, reds) so colours
 # stay identical across frames -- per-frame palettes tinted the black label red
