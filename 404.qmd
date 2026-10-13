@@ -60,9 +60,3 @@ search: false
 
 ![The outer outline of "404" approximated by a Fourier series: the partial sums $S_N(t)=\sum_{|j|\le N} c_j e^{2\pi i j t}$ (black) approach the outline (gray) as $N$ grows; the circles are the individual terms, and the formula in the background lists the coefficients $c_j$.](/images/404-fourier.gif){.notfound-gif fig-alt="Animation: a Fourier series drawing the outline of 404 with rotating circles, getting closer to the shape as N increases."}
 
-::: {.notfound}
-The page you were looking for may have moved, or the address may be mistyped.
-Try one of these instead, or use the search (top right).
-
-[Home](/index.html){.notfound-link} [Teaching](/teaching.html){.notfound-link} [Events](/events.html){.notfound-link} [Notes](/notes/index.html){.notfound-link}
-:::

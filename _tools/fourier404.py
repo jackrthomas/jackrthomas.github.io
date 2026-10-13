@@ -102,7 +102,7 @@ def px(w):
 
 GRAY, BLACK = (150, 150, 150), (0, 0, 0)
 RED = (112, 0, 56)                       # the site maroon (#700038) for the epicycles
-TEXT_GRAY = (212, 212, 212)              # background formula: light, so the drawing reads on top
+TEXT_GRAY = (0, 0, 0)                    # background formula text colour
 target_pts = [tuple(p) for p in px(z)]
 hole_pts = [[tuple(p) for p in px(h)] for h in holes_z]
 
