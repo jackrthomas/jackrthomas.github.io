@@ -139,20 +139,8 @@ iframe.pdf-embed.poster { aspect-ratio: 1684 / 2384; max-height: 95vh; }
 
 
 
-/* Theorem-like environments in notes posts */
-div.theorem, div.lemma, div.proposition, div.corollary, div.definition,
-div.example, div.exercise, div.remark {
-  margin: 1.25rem 0; padding: 0.75rem 1rem; border-radius: 4px; border-left: 4px solid #700038;
-}
-div.theorem, div.lemma, div.proposition, div.corollary { background: #fbf3f7; }
-div.definition { background: #f6f1f8; border-left-color: #5b3069; }
-div.example, div.exercise { background: #f7f7f7; border-left-color: #8a8a8a; }
-div.remark { background: transparent; border-left: 3px solid #e3cbd7; }
-div.theorem > p:last-child, div.lemma > p:last-child, div.proposition > p:last-child,
-div.example > p:last-child, div.remark > p:last-child { margin-bottom: 0; }
-.theorem-title { color: #700038; }
-div.example .theorem-title { color: #444; }
-div.proof { margin: -0.5rem 0 1.25rem; padding: 0.25rem 1rem 0.5rem; border-left: 1px dashed #c9a5b7; }
+/* Proofs in notes posts (theorem boxes themselves are styled in notes/notes.css) */
+div.proof:not(.remark) { margin: -0.5rem 0 1.25rem; padding: 0.25rem 1rem 0.5rem; border-left: 1px dashed #c9a5b7; }
 
 /* Teaching page */
 .role-note { font-size: 0.9rem; color: #6c6c6c; }

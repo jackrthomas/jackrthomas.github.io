@@ -9,3 +9,5 @@
 
 # Kept locally only: content deliberately not published (repo is public)
 /_hidden-content.qmd
+
+**/*.quarto_ipynb

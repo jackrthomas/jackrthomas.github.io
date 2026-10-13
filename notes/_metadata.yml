@@ -1,0 +1,8 @@
+# Applies to every page under notes/ (the listing and all posts).
+# The site-wide stylesheet is listed again so this list adds to it rather
+# than replacing it; notes.css comes last so its rules win.
+format:
+  html:
+    css:
+      - ../styles.css
+      - notes.css
