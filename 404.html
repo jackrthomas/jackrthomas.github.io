@@ -176,6 +176,36 @@ window.Quarto = {
 
 
 <script>
+// This page uses site-root links ("/styles.css", "/images/...") so that it works
+// when GitHub serves it for ANY missing address (e.g. /notes/x/y). When the file
+// itself is opened (address ends in 404.html: a local file, an editor preview, or
+// https://jackrthomas.github.io/404.html) those links may point to the wrong
+// place, so rewrite them relative to this file and re-load the styles/scripts.
+(function () {
+  if (!/\/404\.html$/.test(location.pathname)) return;
+  var base = location.href.replace(/[^/]*([?#].*)?$/, "");       // this file's folder
+  if (base === location.origin + "/") return;                   // at the site root: links already fine
+  function fix(url) { return url.replace(/^\/(\.\/)?/, base); }
+  function rewrite(root) {
+    root.querySelectorAll('link[href^="/"]:not([href^="//"])').forEach(function (el) {
+      var n = el.cloneNode(); n.href = fix(el.getAttribute("href")); el.replaceWith(n);
+    });
+    root.querySelectorAll('script[src^="/"]:not([src^="//"])').forEach(function (el) {
+      var n = document.createElement("script");
+      n.src = fix(el.getAttribute("src")); n.async = false;     // keep execution order
+      el.replaceWith(n);
+    });
+    root.querySelectorAll('img[src^="/"]:not([src^="//"])').forEach(function (el) {
+      el.src = fix(el.getAttribute("src"));
+    });
+    root.querySelectorAll('a[href^="/"]:not([href^="//"])').forEach(function (el) {
+      el.href = fix(el.getAttribute("href"));
+    });
+  }
+  rewrite(document);                                             // head + navbar
+  document.addEventListener("DOMContentLoaded", function () { rewrite(document.body); });
+})();
+
 // Old-site addresses (jack.thomaslabs.co.uk) -> new locations. If the missing
 // address matches one of these, forward the visitor instead of showing the 404.
 (function () {
