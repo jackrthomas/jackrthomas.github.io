@@ -336,3 +336,4 @@ a.notfound-link {
   color: #700038; font-weight: 700;
 }
 a.notfound-link:hover { background: #700038 !important; color: #fff !important; }
+.notfound-gif img, img.notfound-gif { max-width: 100%; width: 720px; height: auto; display: block; }

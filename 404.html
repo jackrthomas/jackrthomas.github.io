@@ -76,6 +76,35 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="/styles.css">
 </head>
@@ -166,6 +195,12 @@ ul.task-list li input[type="checkbox"] {
   }
 })();
 </script>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="/./images/404-fourier.gif" class="notfound-gif img-fluid figure-img" alt="Animation: a Fourier series drawing the outline of 404 with rotating circles, getting closer to the shape as N increases."></p>
+<figcaption>The outline of “404” approximated by a Fourier series: the partial sums over <span class="math inline">\(|j| \le N\)</span> (black) approach the outline (gray) as <span class="math inline">\(N\)</span> grows; the epicycles (red) are the individual terms.</figcaption>
+</figure>
+</div>
 <div class="notfound">
 <p>The page you were looking for may have moved, or the address may be mistyped. Try one of these instead, or use the search (top right).</p>
 <p><a href="/./index.html" class="notfound-link">Home</a> <a href="/./teaching.html" class="notfound-link">Teaching</a> <a href="/./events.html" class="notfound-link">Events</a> <a href="/./notes/index.html" class="notfound-link">Notes</a></p>
