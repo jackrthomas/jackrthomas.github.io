@@ -1,0 +1,25 @@
+project:
+  type: book
+
+book:
+  title: "Group Meetings"
+  author: "Jack Thomas"
+  date: "10/21/2025"
+  chapters:
+    - index.qmd
+    - body-order.ipynb
+    - references.qmd
+
+comments:
+  hypothesis: true
+
+bibliography: references.bib
+
+format:
+  html:
+    theme:
+      light: cosmo
+      dark: darkly
+  pdf:
+    documentclass: scrreprt
+
