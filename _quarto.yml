@@ -1,0 +1,48 @@
+project:
+  type: website
+  output-dir: _build          # never build into the live site folder
+  lib-dir: notes/libs          # the new notes get their own style/script folder, so site_libs/ is never touched
+  pre-render: notes/_tools/pre-render.py
+  post-render: notes/_tools/post-render.py
+  render:
+    - notes/index.qmd
+    - notes/posts/**/*.qmd
+    - notes/posts/**/*.ipynb
+
+website:
+  draft-mode: gone
+  site-url: "https://jackrthomas.github.io"
+  title: "Jack Thomas"
+  favicon: images/pi.ico
+  page-footer:
+    right: "Updated: Oct 2026"
+  navbar:
+    logo: images/pi.png
+    right:
+      - text: Teaching
+        href: teaching.html
+      - text: Events
+        href: events.html
+    tools:
+      - icon: notes-glyph
+        href: notes/index.html
+        text: Notes
+  search:
+    location: navbar
+    type: overlay
+    limit: 50
+    keyboard-shortcut: [f, "/", s]
+    copy-button: false
+    collapse-after: 3
+    show-item-context: false
+
+format:
+  html:
+    theme: [cosmo, notes/theme.scss]
+    css: styles.css
+    title-block-banner: "#700038"
+    title-block-banner-color: white
+    smooth-scroll: true
+    html-math-method:
+      method: mathjax
+      url: https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js

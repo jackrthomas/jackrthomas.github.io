@@ -324,8 +324,15 @@ a.ev-notes {
 }
 .navbar a.quarto-navigation-tool[aria-label="Notes"]:hover,
 .navbar a.quarto-navigation-tool[aria-label="Notes"]:focus-visible { background: #fff; color: #700038 !important; }
+/* Search and the Notes icon sit together at the far right, Notes to the right of search, at every width.
+   (Quarto orders the navbar with flex "order": on wide screens search is 999 and tools 900; on narrow screens
+   toggler 1, brand 2, tools 3, search 4. To put Notes back on the left of search, swap the two order values.) */
+@media (min-width: 992px) {
+  .navbar .quarto-navbar-tools { order: 1000; }
+}
 @media (max-width: 991.98px) {
-  .navbar .quarto-navbar-tools { margin-left: auto; }   /* keep ✎ at the right, beside search */
+  .navbar #quarto-search { order: 3; margin-left: auto; }
+  .navbar .quarto-navbar-tools { order: 4; margin-left: 0; }
 }
 
 /* 404 page */
@@ -337,3 +344,72 @@ a.notfound-link {
 }
 a.notfound-link:hover { background: #700038 !important; color: #fff !important; }
 .notfound-gif img, img.notfound-gif { max-width: 100%; width: 720px; height: auto; display: block; }
+
+/* ---- Events page: globe beside the list ---------------------------------
+   Markup and behaviour: events.html + globe/events-globe.js.
+   Under 992px the globe sits above the list; from 992px it stays in view beside it. */
+.ev-layout { margin: 0 0 2rem; }
+.ev-globe-pane { display: none; }                         /* shown once the script has started */
+.ev-js .ev-globe-pane { display: block; margin-bottom: 1.5rem; }
+.ev-globe-box { position: relative; border: 1px solid #e3cbd7; border-radius: 6px; background: #fdf8fa; overflow: hidden; }
+#ev-globe { display: block; width: 100%; aspect-ratio: 1 / 1; max-height: 70vh; margin: 0 auto; touch-action: pan-y; cursor: grab; }
+#ev-globe.ev-drag { cursor: grabbing; }
+#ev-globe:focus-visible { outline: 3px solid #700038; outline-offset: -3px; }
+.ev-globe-ctl { position: absolute; right: 8px; top: 8px; display: flex; flex-direction: column; gap: 6px; }
+.ev-globe-ctl button {
+  width: 34px; height: 34px; padding: 0; border: 1px solid #e3cbd7; border-radius: 6px;
+  background: #fff; color: #700038; font-size: 16px; line-height: 1; font-weight: 700;
+}
+.ev-globe-ctl button:hover { background: #f3d3e2; }
+.ev-caption { min-height: 3.2em; margin: 0.5rem 0 0; font-size: 0.95rem; font-weight: 600; color: #700038; }
+.ev-caption span { font-weight: 400; color: #6c6c6c; }
+.ev-live { position: absolute; width: 1px; height: 1px; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.ev-tip {
+  position: absolute; z-index: 3; max-width: 260px; padding: 6px 9px; pointer-events: none;
+  background: #fff; border: 1px solid #e3cbd7; border-radius: 6px; box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  font-size: 0.8rem; line-height: 1.35;
+}
+.ev-tip b { color: #700038; }
+.ev-tip-place { margin-top: 2px; color: #6c6c6c; }
+/* Events in the list: clickable when they have a place, highlighted when picked on the globe */
+.event.ev-located { cursor: pointer; }
+.event.ev-hl { background-color: #f7e6ee; box-shadow: inset 4px 0 0 #700038; }
+.event.ev-hl:hover { background-color: #700038; box-shadow: none; }
+.event.ev-focus { animation: ev-flash 1.4s ease-out; }
+@keyframes ev-flash { from { background-color: #e9bfd2; } to { background-color: #f7e6ee; } }
+@media (prefers-reduced-motion: reduce) { .event.ev-focus { animation: none; } }
+@media (min-width: 992px) {
+  /* the article column is only ~800px wide, so widen this block (centred, up to 1100px like the title banner) */
+  .ev-layout { width: min(1100px, 100vw - 4rem); margin-left: calc(50% - min(550px, (100vw - 4rem) / 2)); }
+  .ev-js { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 2.5rem; align-items: start; }
+  .ev-js .ev-list-pane { grid-column: 1; grid-row: 1; min-width: 0; }
+  .ev-js .ev-globe-pane { grid-column: 2; grid-row: 1; position: sticky; top: calc(var(--ev-nav, 60px) + 1rem); margin: 0; }
+}
+.ev-top {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 1030; width: 46px; height: 46px; padding: 0;
+  display: flex; align-items: center; justify-content: center; border: none; border-radius: 50%;
+  background: #700038; color: #fff; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity 0.2s, transform 0.2s, visibility 0.2s, background-color 0.15s;
+}
+.ev-top.show { opacity: 1; visibility: visible; transform: none; }
+.ev-top:hover { background: #8d1a50; }
+.ev-top:focus-visible { outline: 3px solid #ce7718; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { .ev-top { transition: none; } }
+/* Filter pills stay in view while scrolling. The site navbar slides away on scroll-down (headroom), so the bar
+   sits under it while it shows and moves to the very top when it is hidden. */
+.ev-filter-bar {
+  position: sticky; top: var(--ev-nav, 60px); z-index: 20; margin: 0 0 1rem; padding: 0.6rem 0 0.15rem;
+  background: #fff; transition: top 0.25s;
+}
+.ev-filter-bar .event-filter { margin-bottom: 0.4rem; }
+body:has(#quarto-header.headroom--unpinned) .ev-filter-bar { top: 0; }
+@media (prefers-reduced-motion: reduce) { .ev-filter-bar { transition: none; } }
+
+/* No white gap under the navbar while it slides away on scroll: the 60px of body padding that
+   Quarto leaves for the fixed navbar is painted in the navbar/banner maroon (it scrolls with the page,
+   so it simply continues the banner upwards). */
+body { background: linear-gradient(#700038, #700038) top left / 100% 66px no-repeat, #ffffff; }   /* 66 > 60 so it overlaps the banner: no seam */
+#quarto-header, #quarto-header > nav.navbar { border-bottom: 0 !important; box-shadow: none !important; }   /* the navbar's own light bottom border showed as a white line over the maroon */
+
+/* The footer 'Updated: ...' text is a hidden link to the office: it must look and behave like plain text. */
+.office-secret, .office-secret:hover, .office-secret:focus, .office-secret:visited { color: inherit; text-decoration: none; cursor: text; }

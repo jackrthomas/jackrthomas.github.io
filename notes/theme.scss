@@ -1,0 +1,21 @@
+/*-- scss:defaults --*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,400&display=swap');
+$font-family-sans-serif: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-size-root: 17px;
+$primary: #700038;
+$secondary: #343a40;
+$link-color: #700038;
+$body-color: #343a40;
+$navbar-bg: #700038;
+$navbar-fg: #ffffff;
+$navbar-hl: #f3d3e2;
+$headings-font-weight: 700;
+$footer-bg: #700038;
+$footer-fg: #ffffff;
+$maroon: #700038;
+$maroon-light: #8b1b59;
+
+/*-- scss:rules --*/
+a { text-decoration: none; }
+.nav-footer a, .nav-footer { color: #fff; }
+.quarto-title-banner { background-color: #700038; color: #fff; }

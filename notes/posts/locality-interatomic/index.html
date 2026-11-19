@@ -950,4 +950,16 @@ document.querySelectorAll("div.proof:not(.remark)").forEach(function (proof) {
 
 
 <script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+<script id="office-secret-link">
+// The "Updated: ..." text in the footer is a hidden link to the office (office/index.html).
+// It uses the page's own folder depth (quarto:offset) so it works from every page, and it is
+// switched off inside the office's laptop screen so the office never nests inside itself.
+(function () {
+  if (window.self !== window.top) return;
+  var p = document.querySelector('.nav-footer-right p');
+  if (!p || p.querySelector('a')) return;
+  var m = document.querySelector('meta[name="quarto:offset"]');
+  p.innerHTML = '<a class="office-secret no-external" target="_self" href="' + (m ? m.content : '') + 'office/index.html">' + p.innerHTML + '</a>';
+})();
+</script>
 </body></html>

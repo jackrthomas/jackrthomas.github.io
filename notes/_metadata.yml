@@ -1,0 +1,6 @@
+# Applies to every page under notes/ (the Notes listing and every note).
+css: notes.css
+toc: true
+include-after-body:
+  - _nav-preview.html
+  - _office-link.html

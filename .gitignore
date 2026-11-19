@@ -1,0 +1,7 @@
+# Quarto scratch output (rebuilt by quarto render)
+_build/
+.quarto/
+
+/.quarto/
+**/*.quarto_ipynb
+_site/

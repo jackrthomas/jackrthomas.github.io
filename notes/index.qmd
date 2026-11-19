@@ -1,0 +1,169 @@
+---
+title: "Notes"
+subtitle: "Talks, group meetings and notes"
+page-layout: full
+listing:
+  id: listing
+  feed: true
+  sort: "date desc"
+  type: default
+  image-align: right
+  categories: true
+  fields: [image, date, title, subtitle, categories, description, author]
+  contents:
+    # 1. Every note you write: a folder notes/posts/<name>/ holding index.qmd (or index.ipynb)
+    - posts
+    # 2. The older notes. Their source files are not in this folder (they are already
+    #    built), so they are listed by hand here. Edit this list only if you change
+    #    the title/date/categories of an old note, or delete one.
+    - title: "Orthogonal Polynomials & Jacobi Operators"
+      path: "posts/orthogonal-polynomials/index.html"
+      image: "posts/orthogonal-polynomials/thumb.png"
+      subtitle: ""
+      description: "Group meeting on measures, moments, OPs, Jacobi operators, and how they are related to each other"
+      date: "2026-03-27"
+      author: "Jack Thomas"
+      categories: ["Group Meeting", "Talk"]
+    - title: "Locality"
+      path: "posts/locality/index.html"
+      image: "posts/locality/thumb.png"
+      subtitle: "Based on Thomas, Baldwin, Csanyi, Ortner, 2025"
+      description: "Group meeting - Christoph Ortner’s group"
+      date: "2025-10-23"
+      author: "Jack Thomas"
+      categories: ["Group Meeting", "Talk"]
+    - title: "Decay of interatomic force constants in the reduced Hartree-Fock model"
+      path: "posts/rHF/index.html"
+      image: "posts/rHF/thumb.png"
+      subtitle: "Based on Cances, Levitt, Thomas, 2025"
+      description: "Group meeting on the decay of interatomic force constants in the reduced Hartree-Fock model."
+      date: "2025-10-10"
+      author: "Jack Thomas"
+      categories: ["Group Meeting", "Talk"]
+    - title: "Combes-Thomas estimate for banded matrices"
+      path: "posts/CT/index.html"
+      image: "posts/CT/thumb.png"
+      subtitle: "Benzi, Boito, Razouk, 2013"
+      description: ""
+      date: "2025-09-10"
+      author: "Jack Thomas"
+      categories: ["Notes"]
+    - title: "Screening in the reduced Hartree-Fock model"
+      path: "posts/screening-rhf/index.html"
+      image: "posts/screening-rhf/thumb.png"
+      subtitle: "Conference talk"
+      description: "Screening of defects in metals and insulators in the reduced Hartree-Fock model (joint work with Éric Cancès and Antoine Levitt)."
+      date: "2024-12-01"
+      author: "Jack Thomas"
+      categories: ["Talk", "Conference"]
+    - title: "Friedel Oscillations"
+      path: "posts/friedel-oscillations/index.html"
+      image: "posts/friedel-oscillations/thumb.png"
+      subtitle: "Poster: Friedel oscillations in the reduced Hartree-Fock model"
+      description: "Friedel oscillations in the reduced Hartree-Fock model (joint work with Antoine Levitt)."
+      date: "2024-01-01"
+      author: "Jack Thomas"
+      categories: ["Poster", "Conference"]
+    - title: "Body-ordered Approximations of Atomic Properties"
+      path: "posts/body-ordered/index.html"
+      image: "posts/body-ordered/chebyshev.gif"
+      subtitle: "Talk and group meeting"
+      description: "Body-ordered approximations, polynomial approximation and interpolation nodes."
+      date: "2023-10-01"
+      author: "Jack Thomas"
+      categories: ["Talk", "Seminar", "Group Meeting"]
+    - title: "Locality of Interatomic Interactions"
+      path: "posts/locality-interatomic/index.html"
+      image: "posts/locality-interatomic/hops.gif"
+      subtitle: "Seminar talk"
+      description: "Sparsity of the potential energy landscape and the theory of machine-learned interatomic potentials (joint work with Huajie Chen and Christoph Ortner)."
+      date: "2023-06-01"
+      author: "Jack Thomas"
+      categories: ["Talk", "Seminar"]
+    - title: "Analysis of an ab initio Potential Energy Landscape"
+      path: "posts/phd-thesis/index.html"
+      image: "posts/phd-thesis/thumb.png"
+      subtitle: "PhD thesis, University of Warwick"
+      description: "PhD thesis (Mathematics Institute, University of Warwick), supervised by Christoph Ortner. Faculty Thesis Prize 2022 (joint winner)."
+      date: "2021-09-01"
+      author: "Jack Thomas"
+      categories: ["Thesis"]
+    - title: "Locality of Interatomic Interactions in Tight Binding Models for Insulators"
+      path: "posts/locality-poster/index.html"
+      image: "posts/locality-poster/thumb.png"
+      subtitle: "Poster: locality of interatomic forces in tight binding models"
+      description: "Exponentially localised site-energy decompositions for tight binding models of insulators (joint work with Christoph Ortner and Huajie Chen)."
+      date: "2020-07-01"
+      author: "Jack Thomas"
+      categories: ["Poster", "Conference"]
+    - title: "Analysis of the Tight Binding Model"
+      path: "posts/msc-thesis/index.html"
+      image: "posts/msc-thesis/thumb.png"
+      subtitle: "MSc thesis (Summer Research Project), University of Warwick"
+      description: "MSc Summer Research Project (MASDOC, University of Warwick), supervised by Christoph Ortner."
+      date: "2018-08-01"
+      author: "Jack Thomas"
+      categories: ["Thesis"]
+---
+
+<script>
+// runs after load: the listing markup comes after this script in the page
+window.addEventListener("load", function () {
+  // Posts whose date is only known to the month (dated the 1st): show "Jun 2023"
+  // in the listing instead of "Jun 1, 2023". Their own pages use date-format.
+  var MONTH_ONLY = ["friedel-oscillations", "screening-rhf", "locality-interatomic",
+                    "body-ordered", "locality-poster", "phd-thesis", "msc-thesis"];
+  document.querySelectorAll(".quarto-post").forEach(function (post) {
+    var a = post.querySelector("a[href]");
+    var slug = a && (a.getAttribute("href").match(/posts\/([^/]+)\//) || [])[1];
+    if (MONTH_ONLY.indexOf(slug) === -1) return;
+    var d = post.querySelector(".listing-date");
+    if (d) d.textContent = d.textContent.trim().replace(/\s\d{1,2},/, "");
+  });
+
+  // Year timeline in the right-hand sidebar: click a year to show only its notes
+  function yearOf(el) {
+    return new Date(Number(el.getAttribute("data-listing-date-sort"))).getUTCFullYear();
+  }
+  var posts = Array.prototype.slice.call(document.querySelectorAll(".quarto-post"));
+  var counts = {};
+  posts.forEach(function (p) { var y = yearOf(p); counts[y] = (counts[y] || 0) + 1; });
+  var years = Object.keys(counts).sort(function (a, b) { return b - a; });
+  var sidebar = document.getElementById("quarto-margin-sidebar");
+  if (!sidebar || !years.length) return;
+
+  var box = document.createElement("div");
+  box.className = "notes-years";
+  box.innerHTML = '<h5 class="quarto-listing-category-title">Years</h5>' +
+    '<ul class="notes-years-list"><li class="active" data-year="all">All <span>(' + posts.length + ')</span></li>' +
+    years.map(function (y) { return '<li data-year="' + y + '">' + y + ' <span>(' + counts[y] + ')</span></li>'; }).join("") +
+    "</ul>";
+  sidebar.appendChild(box);
+
+  function lists() {
+    var L = window["quarto-listings"] || {};
+    return Object.keys(L).map(function (k) { return L[k]; });
+  }
+  function setActiveYear(y) {
+    box.querySelectorAll("li").forEach(function (li) { li.classList.toggle("active", li.dataset.year === y); });
+  }
+  box.querySelectorAll("li").forEach(function (li) {
+    li.addEventListener("click", function () {
+      var y = li.dataset.year;
+      setActiveYear(y);
+      // reset the category filter so the two don't combine confusingly
+      document.querySelectorAll(".quarto-listing-category .category.active").forEach(function (c) { c.classList.remove("active"); });
+      var all = document.querySelector(".quarto-listing-category .category[data-category='']");
+      if (all) all.classList.add("active");
+      lists().forEach(function (list) {
+        if (y === "all") list.filter();
+        else list.filter(function (item) { return String(yearOf(item.elm)) === y; });
+      });
+    });
+  });
+  // picking a category resets the year selection
+  document.querySelectorAll(".quarto-listing-category .category").forEach(function (c) {
+    c.addEventListener("click", function () { setActiveYear("all"); });
+  });
+});
+</script>

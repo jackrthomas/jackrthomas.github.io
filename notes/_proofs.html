@@ -1,0 +1,17 @@
+<script>
+// Notes: make proofs collapsible, collapsed by default. Each proof's content is
+// wrapped in <details>; the summary shows the proof's title ("Proof",
+// "Proof of Lemma 1", ...). Remarks (which Quarto also marks as .proof) stay open.
+document.querySelectorAll("div.proof:not(.remark)").forEach(function (proof) {
+  var titleEl = proof.querySelector(".proof-title");
+  var label = titleEl ? titleEl.textContent.replace(/[.\s]+$/, "") : "Proof";
+  if (titleEl) titleEl.remove();
+  var details = document.createElement("details");
+  details.className = "proof-details";
+  var summary = document.createElement("summary");
+  summary.textContent = label;
+  details.appendChild(summary);
+  while (proof.firstChild) details.appendChild(proof.firstChild);
+  proof.appendChild(details);
+});
+</script>

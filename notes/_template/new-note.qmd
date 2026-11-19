@@ -1,0 +1,46 @@
+---
+title: "Title of the note"
+subtitle: "Where it was given, or what it is based on"
+description: "One or two sentences. Shown on the Notes page under the title."
+date: 2026-11-18
+categories: [Notes]
+author: "Jack Thomas"
+# image: thumb.png
+# toc: false
+# draft: true
+---
+
+<!--
+HOW TO USE THIS FILE
+1. Copy this file to  notes/posts/<short-name>/index.qmd   (the folder name becomes the web address).
+2. Fill in the lines above. categories: pick from  Talk, Group Meeting, Seminar, Conference, Poster, Thesis, Notes
+   (several are fine: [Talk, Group Meeting]).
+3. image: put a picture called thumb.png in the same folder, then delete the "# " in front of "image:".
+   It is the small picture beside the note on the Notes page. About 600 x 400 pixels works well.
+4. Put pdfs and figures in the same folder and link to them by file name, e.g. [notes](notes.pdf).
+5. draft: true keeps the note out of the website until you delete that line.
+6. Optional lines: "toc: false" removes the "On this page" contents box; date-format: "MMMM YYYY" shows only month and year.
+Run  quarto render  in the personal-website folder. Delete this box when you are done.
+-->
+
+## Introduction
+
+Write here. Maths works as usual: $e^{i\pi}+1=0$, and
+
+$$
+\int_0^1 x^2\,dx = \frac13 .
+$$
+
+::: {#thm-example}
+## Example theorem
+
+Every bounded monotone sequence converges.
+:::
+
+::: {.proof}
+Sketch here.
+:::
+
+See @thm-example.
+
+To cite a paper, put a file `references.bib` next to this note, add the line `bibliography: references.bib` at the top, and write `[@key]` in the text (`@key` for "Author (year)"). The reference list appears at the end automatically.

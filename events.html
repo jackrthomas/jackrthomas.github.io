@@ -146,11 +146,29 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<div class="ev-layout">
+<div class="ev-globe-pane" role="region" aria-label="Map of where events took place">
+<div class="ev-globe-box">
+<canvas id="ev-globe" tabindex="0" role="img" aria-label="Rotatable globe with a dot for each event. The event list shows the same information."></canvas>
+<div class="ev-globe-ctl">
+<button type="button" id="ev-spin" aria-pressed="true" title="Pause rotation" aria-label="Pause or start rotation">&#9208;</button>
+<button type="button" id="ev-zin" title="Zoom in" aria-label="Zoom in">+</button>
+<button type="button" id="ev-zout" title="Zoom out" aria-label="Zoom out">&minus;</button>
+<button type="button" id="ev-reset" title="Reset view" aria-label="Reset view">&#8962;</button>
+</div>
+<div class="ev-tip" id="ev-tip" hidden></div>
+</div>
+<p class="ev-caption" id="ev-caption"></p>
+<p class="ev-live" id="ev-live" aria-live="polite"></p>
+</div>
+<div class="ev-list-pane">
+<div class="ev-filter-bar">
 <div class="event-filter" role="group" aria-label="Filter events">
   <button class="active" data-filter="all">All</button>
   <button data-filter="talk">Talks / Posters</button>
   <button data-filter="seminar">Seminars</button>
   <button data-filter="conference">Conferences</button>
+</div>
 </div>
 <div class="year-group">
 <p><span class="year-label">2026</span></p>
@@ -282,6 +300,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <div class="year-group">
 <p><span class="year-label">2021</span></p>
+<!-- HIDDEN (2021 Sep): remove this comment line and the matching closing marker below to show it again
 <div class="event conference">
 <p><span class="ev-month">Sep</span></p>
 <div class="ev-body">
@@ -289,6 +308,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="ev-badge attended">Attended</span></p>
 </div>
 </div>
+HIDDEN-END -->
 <div class="event talk conference">
 <p><span class="ev-month">Jul</span></p>
 <div class="ev-body">
@@ -323,6 +343,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="ev-badge poster">Poster</span> <span class="ev-what">Locality of Interatomic Interactions in Tight Binding Models for Insulators</span> <a href="./notes/posts/locality-poster/index.html" class="ev-notes">Notes&nbsp;→</a></p>
 </div>
 </div>
+<!-- HIDDEN (2020 Jul): remove this comment line and the matching closing marker below to show it again
 <div class="event conference">
 <p><span class="ev-month">Jul</span></p>
 <div class="ev-body">
@@ -331,6 +352,8 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="ev-badge attended">Attended</span></p>
 </div>
 </div>
+HIDDEN-END -->
+<!-- HIDDEN (2020 Jun): remove this comment line and the matching closing marker below to show it again
 <div class="event conference">
 <p><span class="ev-month">Jun</span></p>
 <div class="ev-body">
@@ -339,9 +362,11 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="ev-badge attended">Attended</span></p>
 </div>
 </div>
+HIDDEN-END -->
 </div>
 <div class="year-group">
 <p><span class="year-label">2019</span></p>
+<!-- HIDDEN (2019 Sep): remove this comment line and the matching closing marker below to show it again
 <div class="event conference">
 <p><span class="ev-month">Sep</span></p>
 <div class="ev-body">
@@ -350,6 +375,7 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="ev-badge attended">Attended</span></p>
 </div>
 </div>
+HIDDEN-END -->
 <div class="event talk conference">
 <p><span class="ev-month">Jun</span></p>
 <div class="ev-body">
@@ -410,6 +436,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</div>
+</div>
+<!-- /ev-layout -->
+<button type="button" id="ev-top" class="ev-top" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><path d="M12 19V5M5 12l7-7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
 <script>
 // Events filter (hides a year heading when none of its events match)
 document.querySelectorAll(".event-filter button").forEach(function (btn) {
@@ -429,6 +459,23 @@ document.querySelectorAll(".event-filter button").forEach(function (btn) {
     });
   });
 });
+</script>
+<script src="globe/world-110m.js"></script>
+<script src="globe/events-globe.js"></script>
+<script>
+// Page furniture for the events page: tracks the navbar height (for the sticky filter and globe) and runs the
+// back-to-top arrow (bottom right), which appears once the page has scrolled and then scrolls up smoothly
+(function () {
+  var b = document.getElementById("ev-top");
+  if (!b) return;
+  function navH() { var n = document.getElementById("quarto-header"); document.documentElement.style.setProperty("--ev-nav", (n ? n.offsetHeight : 60) + "px"); }
+  navH(); window.addEventListener("resize", navH); window.addEventListener("load", navH);
+  var reduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function update() { b.classList.toggle("show", window.pageYOffset > 400); }
+  window.addEventListener("scroll", update, { passive: true });
+  update();
+  b.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" }); });
+})();
 </script>
 
 
@@ -956,4 +1003,16 @@ document.querySelectorAll(".event-filter button").forEach(function (btn) {
 
 
 <script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script id="office-secret-link">
+// The "Updated: ..." text in the footer is a hidden link to the office (office/index.html).
+// It uses the page's own folder depth (quarto:offset) so it works from every page, and it is
+// switched off inside the office's laptop screen so the office never nests inside itself.
+(function () {
+  if (window.self !== window.top) return;
+  var p = document.querySelector('.nav-footer-right p');
+  if (!p || p.querySelector('a')) return;
+  var m = document.querySelector('meta[name="quarto:offset"]');
+  p.innerHTML = '<a class="office-secret no-external" target="_self" href="' + (m ? m.content : '') + 'office/index.html">' + p.innerHTML + '</a>';
+})();
+</script>
 </body></html>
